@@ -3,10 +3,12 @@
 1.  У всех установленны пакеты Prettier и Formatting Toggle, чтобы у всех был
     одинакового стиля код:
 
-        _Ссылка на расшиерния для VSC:_ esbenp.prettier-vscode
+        _Ссылка на расшиерния для VSC:_ 
+        
+        esbenp.prettier-vscode
         tombonnike.vscode-status-bar-format-toggle
 
-        shift + alt + f = выбираем сандартный украшатель нашего кода - prettier/
+        *shift + alt + f = выбираем сандартный украшатель нашего кода - prettier*
 
 2.  Используем ре-экспорты;
 
