@@ -1,0 +1,13 @@
+@value primary-color: #ffffff;
+
+/* 
+
+*импорт:
+@value primary-color from '../../..';
+
+*используем:
+Component {
+    background:  primary-color;   
+}
+
+*/
