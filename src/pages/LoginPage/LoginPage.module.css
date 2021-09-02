@@ -1,0 +1,30 @@
+@value secondary-title-color from '../../styles/variables.module.css';
+@value secondary-font from '../../styles/variables.module.css';
+
+.Hero {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.Title {
+  margin-bottom: 60px;
+
+  text-align: center;
+  font-family: secondary-font;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: secondary-title-color;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .Hero {
+    padding-top: 191px;
+    padding-bottom: 466px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+}
