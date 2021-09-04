@@ -1,1 +1,1 @@
-export { default } from './DailyCalorieIntake.jsx'
+export { default } from './DailyCalorieIntake';

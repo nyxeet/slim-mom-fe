@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import styles from './DailyCaloriesForm.module.css';
 import Modal from './../Modal';
+import DailyCalorieIntake from './../DailyCalorieIntake';
 
 export default function DailyCaloriesForm() {
   const [height, setHeight] = useState('');
@@ -72,7 +73,11 @@ export default function DailyCaloriesForm() {
 
   return (
     <div className={classNames(styles.FormWrapper)}>
-      {modalIsOpen && <Modal onClose={toggleModal} />}
+      {modalIsOpen && (
+        <Modal onClose={toggleModal}>
+          <DailyCalorieIntake />
+        </Modal>
+      )}
       <h1 className={styles.Title}>
         Просчитай свою суточную норму калорий прямо сейчас
       </h1>
