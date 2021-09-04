@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Button from '../Button';
 import classNames from 'classnames';
+import { authOperations } from '../../redux/auth';
 
 import styles from './LoginForm.module.css';
 
 export default function LoginForm() {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const onChangeInput = ({ target }) => {
     const { name, value } = target;
@@ -25,14 +28,18 @@ export default function LoginForm() {
     }
   };
 
-  // todo
   const onSubmitForm = event => {
     event.preventDefault();
-    console.log(login);
-    console.log(password);
+
+    if (login === '' || password === '') {
+      console.log('Login or Password is incorrect');
+      return;
+    }
+
+    dispatch(authOperations.login({ login, password }));
+    clearForm();
   };
 
-  // todo
   const clearForm = () => {
     setLogin('');
     setPassword('');
@@ -79,7 +86,7 @@ export default function LoginForm() {
           Вход
         </Button>
 
-        <Button type="button" active={false}>
+        <Button type="button" active={false} link={true} linkTo="/signup">
           Регистрация
         </Button>
       </div>

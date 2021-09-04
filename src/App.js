@@ -1,24 +1,7 @@
-import React, { Suspense, lazy } from 'react';
-// import { Switch } from 'react-router-dom';
-// import { loginLink } from './routes';
-
-import LoginPage from './pages/LoginPage/LoginPage';
-
-// const LoginPage = lazy(() =>
-//   import('./pages/LoginPage' /* webpackChunkName: "LoginPage" */),
-// );
+import React from 'react';
 
 function App() {
-  return (
-    <>
-      <LoginPage />
-      {/* <Switch>
-        <PublicRoute path={loginLink} restricted redirectTo={contactsLink}>
-          <LoginPage />
-        </PublicRoute>
-      </Switch> */}
-    </>
-  );
+  return <div>Hello guys!</div>;
 }
 
 export default App;
