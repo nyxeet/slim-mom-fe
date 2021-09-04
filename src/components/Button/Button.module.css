@@ -49,6 +49,21 @@
   background-color: secondary-bg-color;
 }
 
+.Link {
+  color: secondary-btn-color;
+  background-color: secondary-bg-color;
+}
+
+.loginLink {
+  color: primary-btn-color;
+  background-color: primary-bg-color;
+}
+
+.registrationLink {
+  color: secondary-btn-color;
+  background-color: secondary-bg-color;
+}
+
 @media screen and (min-width: 768px) {
   .BtnPosition {
     margin-right: 30px;
