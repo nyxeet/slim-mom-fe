@@ -8,25 +8,18 @@
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .background {
-    background-image: url('../images/pics/leaves-tablet.png'),
-      url('../images/pics/strawberry-tablet.png'),
-      url('../images/pics/banana-tablet.png'),
-      url('../images/pics/grey-bcg-tablet.png');
-    background-position: bottom right 166px, bottom 150px right, bottom right,
-      bottom right;
+    background-image: url('../images/pics/bg-main-tablet.png');
+    background-size: contain;
+    background-position: bottom right;
     background-repeat: no-repeat;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .background {
-    height: 100vh;
-    background-image: url('../images/pics/leaves-desktop.png'),
-      url('../images/pics/strawberry-desktop.png'),
-      url('../images/pics/banana-desktop.png'),
-      url('../images/pics/grey-bcg-desktop.png');
-    background-position: right 250px bottom, bottom right 36px,
-      bottom 290px right, bottom -120px right;
+    background-image: url('../images/pics/bg-main-desktop.png');
+    background-size: contain;
+    background-position: bottom right;
     background-repeat: no-repeat;
   }
 }
