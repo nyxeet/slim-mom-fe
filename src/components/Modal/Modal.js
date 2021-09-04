@@ -41,8 +41,13 @@ const Modal = ({ onClose, children }) => {
           className={styles.closeModalBtn}
           onClick={handleCloseButtonClick}
         />
-
-        {children}
+        <div className={styles.mobileBack}>
+          <button
+            className={styles.closeModalBtnMobile}
+            onClick={handleCloseButtonClick}
+          />
+        </div>
+        <div className={styles.container}>{children}</div>
       </div>
     </div>,
     document.getElementById('modal-root'),
