@@ -1,0 +1,35 @@
+.Date {
+  font-family: Verdana;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 41px;
+
+  color: #212121;
+}
+
+.CalendarBtn {
+  background: transparent;
+  border: none;
+}
+
+.Calendar {
+  background-image: url('../../images/icons/calendar.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+}
+
+.Datepicker {
+  width: 219px;
+  /* height: 100px; */
+
+  font-family: Verdana;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 41px;
+  color: #212121;
+
+  outline: none;
+  border: none;
+}
