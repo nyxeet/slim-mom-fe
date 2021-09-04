@@ -1,8 +1,10 @@
 @value secondary-title-color from '../../styles/variables.module.css';
 @value secondary-font from '../../styles/variables.module.css';
+@value secondary-bg-color from '../../styles/variables.module.css';
 
 .LoginPage {
-  background-color: #fff;
+  height: 100vh;
+  background-color: secondary-bg-color;
 }
 
 .Hero {
@@ -24,16 +26,15 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .LoginContainer {
-    background-image: url('../../images/pics/tablet-bg.png');
-    background-position: right;
-    background-repeat: no-repeat;
+  .LoginPage {
+    background-image: url('../../images/pics/bg-main-tablet.png');
     background-size: contain;
+    background-position: bottom right;
+    background-repeat: no-repeat;
   }
 
   .Hero {
     padding-top: 191px;
-    padding-bottom: 466px;
   }
 
   .Title {
@@ -48,15 +49,14 @@
     text-align: left;
   }
 
-  .LoginContainer {
-    background-image: url('../../images/pics/pc-bg.png');
-    background-position: right;
-    background-repeat: no-repeat;
+  .LoginPage {
+    background-image: url('../../images/pics/bg-main-desktop.png');
     background-size: contain;
+    background-position: bottom right;
+    background-repeat: no-repeat;
   }
 
   .Hero {
     padding-top: 213px;
-    padding-bottom: 190px;
   }
 }
