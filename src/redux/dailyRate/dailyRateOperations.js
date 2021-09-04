@@ -1,8 +1,8 @@
 import axios from 'axios';
 import dailyRateActions from './dailyRateActions';
-import authOperations from '../auth/authOperations';
+import authOperations from '../auth/auth-operations';
 
-axios.defaults.baseURL = 'https://slim-mom.herokuapp.com';
+// axios.defaults.baseURL = 'https://slim-mom.herokuapp.com';
 
 const onFetchDailyRates = values => dispatch => {
   dispatch(dailyRateActions.fetchDailyRateRequest());

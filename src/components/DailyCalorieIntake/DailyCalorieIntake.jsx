@@ -1,5 +1,4 @@
 
-import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './DailyCalorieIntake.module.css';
@@ -9,12 +8,6 @@ const DailyCalorieIntake = () => {
    const calories = useSelector(dailyRateSelector.getCalories);
    const products = useSelector(dailyRateSelector.getProducts);
 
-   const [value, setValue] = useState('');
-   const onChange = event => setValue(event.target.value);
-
-   const productsFinal = products.filter(product =>
-      product.toLowerCase().includes(value),
-   );
    return (
       <div className={styles.wrapper}>
          <p className={styles.title}>
@@ -28,18 +21,8 @@ const DailyCalorieIntake = () => {
                Продукты, которые вам не рекомендуется употреблять
             </p>
 
-            <div className={styles.inputWrapper}>
-               <input
-                  className={styles.input}
-                  type="text"
-                  name="filter"
-                  value={value}
-                  onChange={onChange}
-               />
-            </div>
-
             <ol className={styles.productsList}>
-               {productsFinal.map((product, id) => (
+               {products.map((product, id) => (
                   <li key={id} className={styles.productsItem}>
                      {product}
                   </li>
