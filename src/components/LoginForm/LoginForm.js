@@ -50,10 +50,10 @@ export default function LoginForm() {
             onChange={onChangeInput}
             autoComplete="off"
             placeholder=" "
-            id={login}
+            id="login"
           ></input>
 
-          <label className={styles.Label} for={login}>
+          <label className={styles.Label} htmlFor="login">
             Логин *
           </label>
         </div>
@@ -66,9 +66,9 @@ export default function LoginForm() {
             onChange={onChangeInput}
             autoComplete="off"
             placeholder=" "
-            id={password}
+            id="password"
           ></input>
-          <label className={styles.Label} id={password}>
+          <label className={styles.Label} htmlFor="password">
             Пароль *
           </label>
         </div>

@@ -50,7 +50,7 @@ img {
   padding-right: 15px;
   width: 100%;
   max-width: 320px; /*! add */
-  background: green;
+  /* background: green; */
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -59,7 +59,6 @@ img {
     padding-right: 87px;
     width: 100%; /*! add */
     max-width: 768px; /*! add */
-    background: yellow;
   }
 }
 
@@ -67,6 +66,7 @@ img {
   .container {
     padding-left: 115px;
     padding-right: 115px;
-    width: 1280px;
+    width: 100%; /*! add */
+    max-width: 1280px; /*! add */
   }
 }

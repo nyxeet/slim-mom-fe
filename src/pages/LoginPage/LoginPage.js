@@ -1,20 +1,21 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import LoginForm from '../../components/LoginForm';
-import Button from '../../components/Button';
 
 import styles from './LoginPage.module.css';
 
 export default function LoginPage() {
   return (
-    <>
-      <div className="container">Header</div>
+    <section className={styles.LoginPage}>
+      <div className={classNames('container', styles.LoginContainer)}>
+        <div>Header</div>
 
-      <main className={styles.Hero}>
-        <div className="container">
+        <main className={styles.Hero}>
           <h1 className={styles.Title}>Вход</h1>
           <LoginForm />
-        </div>
-      </main>
-    </>
+        </main>
+      </div>
+    </section>
   );
 }
