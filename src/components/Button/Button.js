@@ -11,7 +11,9 @@ export default function Button({
   mr,
   link,
   linkTo,
+  loginLink,
   children,
+  registrationLink,
 }) {
   return (
     <button
@@ -25,7 +27,13 @@ export default function Button({
       )}
     >
       {link ? (
-        <Link className={styles.Link} to={linkTo}>
+        <Link
+          className={classNames(
+            loginLink && styles.loginLink,
+            registrationLink && styles.registrationLink,
+          )}
+          to={linkTo}
+        >
           {children}
         </Link>
       ) : (
@@ -41,6 +49,8 @@ Button.defaultProps = {
   form: null,
   children: 'Button',
   register: false,
+  loginLink: false,
+  registrationLink: false,
 };
 
 Button.propTypes = {

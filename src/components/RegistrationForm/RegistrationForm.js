@@ -4,9 +4,10 @@ import Button from '../Button';
 import classNames from 'classnames';
 import { authOperations } from '../../redux/auth';
 
-import styles from './LoginForm.module.css';
+import styles from './RegistrationForm.module.css';
 
-export default function LoginForm() {
+export default function RegistrationForm() {
+  const [name, setName] = useState('');
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
@@ -15,6 +16,10 @@ export default function LoginForm() {
     const { name, value } = target;
 
     switch (name) {
+      case 'name':
+        setName(value);
+        break;
+
       case 'login':
         setLogin(value);
         break;
@@ -31,16 +36,17 @@ export default function LoginForm() {
   const onSubmitForm = event => {
     event.preventDefault();
 
-    if (login === '' || password === '') {
-      console.log('Login or Password is incorrect');
+    if (name === '' || login === '' || password === '') {
+      console.log('Name or Login or Password is incorrect');
       return;
     }
 
-    dispatch(authOperations.login({ login, password }));
+    dispatch(authOperations.registration({ name, login, password }));
     clearForm();
   };
 
   const clearForm = () => {
+    setName('');
     setLogin('');
     setPassword('');
   };
@@ -48,6 +54,22 @@ export default function LoginForm() {
   return (
     <div className={classNames(styles.FormWrapper)}>
       <form onSubmit={onSubmitForm} className={styles.Form} id="form">
+        <div className={styles.Wrapper}>
+          <input
+            className={styles.Input}
+            type="text"
+            name="name"
+            value={name}
+            onChange={onChangeInput}
+            autoComplete="off"
+            placeholder=" "
+            id="name"
+          ></input>
+
+          <label className={styles.Label} htmlFor="name">
+            Имя *
+          </label>
+        </div>
         <div className={styles.Wrapper}>
           <input
             className={styles.Input}
@@ -82,17 +104,19 @@ export default function LoginForm() {
       </form>
 
       <div className={classNames(styles.BtnWrapper)}>
-        <Button type="submit" active={true} form="form" mr="mr">
+        <Button
+          type="submit"
+          active={true}
+          form="form"
+          mr="mr"
+          loginLink={true}
+          link={true}
+          linkTo="/login"
+        >
           Вход
         </Button>
 
-        <Button
-          type="button"
-          active={false}
-          link={true}
-          linkTo="/signup"
-          registrationLink={true}
-        >
+        <Button type="button" active={false}>
           Регистрация
         </Button>
       </div>
