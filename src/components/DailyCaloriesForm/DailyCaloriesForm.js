@@ -3,6 +3,7 @@ import Button from './Button';
 import classNames from 'classnames';
 
 import styles from './DailyCaloriesForm.module.css';
+import Modal from './../Modal';
 
 export default function DailyCaloriesForm() {
   const [height, setHeight] = useState('');
@@ -10,6 +11,12 @@ export default function DailyCaloriesForm() {
   const [weight, setWeight] = useState('');
   const [desiredWeight, setDesiredWeight] = useState('');
   const [bloodType, setBloodType] = useState('1');
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  console.log(modalIsOpen);
+
+  const toggleModal = () => {
+    setModalIsOpen(!modalIsOpen);
+  };
 
   const onChangeInput = ({ target }) => {
     const { name, value } = target;
@@ -50,6 +57,7 @@ export default function DailyCaloriesForm() {
     console.log(weight);
     console.log(desiredWeight);
     console.log(bloodType);
+    toggleModal();
     clearForm();
   };
 
@@ -64,6 +72,7 @@ export default function DailyCaloriesForm() {
 
   return (
     <div className={classNames(styles.FormWrapper)}>
+      {modalIsOpen && <Modal onClose={toggleModal} />}
       <h1 className={styles.Title}>
         Просчитай свою суточную норму калорий прямо сейчас
       </h1>
