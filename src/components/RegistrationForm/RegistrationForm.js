@@ -111,7 +111,7 @@ export default function RegistrationForm() {
           mr="mr"
           loginLink={true}
           link={true}
-          linkTo="/registration"
+          linkTo="/login"
         >
           Вход
         </Button>
