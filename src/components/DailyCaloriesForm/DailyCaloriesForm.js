@@ -1,23 +1,14 @@
 import React, { useState } from 'react';
 import Button from './Button';
 import classNames from 'classnames';
-
 import styles from './DailyCaloriesForm.module.css';
-import Modal from './../Modal';
-import DailyCalorieIntake from './../DailyCalorieIntake';
 
-export default function DailyCaloriesForm() {
+export default function DailyCaloriesForm({ onSubmit }) {
   const [height, setHeight] = useState('');
   const [age, setAge] = useState('');
   const [weight, setWeight] = useState('');
   const [desiredWeight, setDesiredWeight] = useState('');
   const [bloodType, setBloodType] = useState('1');
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  console.log(modalIsOpen);
-
-  const toggleModal = () => {
-    setModalIsOpen(!modalIsOpen);
-  };
 
   const onChangeInput = ({ target }) => {
     const { name, value } = target;
@@ -42,23 +33,20 @@ export default function DailyCaloriesForm() {
       default:
         break;
     }
-
-    console.log(name, value);
   };
 
   const onChangeRadio = e => {
     setBloodType(e.target.value);
   };
-
-  // todo
-  const onSubmitForm = event => {
-    event.preventDefault();
-    console.log(height);
-    console.log(age);
-    console.log(weight);
-    console.log(desiredWeight);
-    console.log(bloodType);
-    toggleModal();
+  const onSubmitForm = e => {
+    e.preventDefault();
+    onSubmit({
+      weight,
+      age,
+      height,
+      newWeight: desiredWeight,
+      bloodGroup: bloodType,
+    });
     clearForm();
   };
 
@@ -73,11 +61,6 @@ export default function DailyCaloriesForm() {
 
   return (
     <div className={classNames(styles.FormWrapper)}>
-      {modalIsOpen && (
-        <Modal onClose={toggleModal}>
-          <DailyCalorieIntake />
-        </Modal>
-      )}
       <h1 className={styles.Title}>
         Просчитай свою суточную норму калорий прямо сейчас
       </h1>
