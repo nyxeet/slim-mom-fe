@@ -1,4 +1,4 @@
-@value variables: '../styles/variables.module.css';
+@value variables: './../../styles/variables.module.css';
 @value secondary-bg-color from variables;
 
 .background {
@@ -8,7 +8,7 @@
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .background {
-    background-image: url('../images/pics/bg-main-tablet.png');
+    background-image: url('./../../images/pics/bg-main-tablet.png');
     background-size: contain;
     background-position: bottom right;
     background-repeat: no-repeat;
@@ -17,7 +17,7 @@
 
 @media screen and (min-width: 1280px) {
   .background {
-    background-image: url('../images/pics/bg-main-desktop.png');
+    background-image: url('./../../images/pics/bg-main-desktop.png');
     background-size: contain;
     background-position: bottom right;
     background-repeat: no-repeat;

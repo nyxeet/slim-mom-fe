@@ -1,0 +1,60 @@
+@value variables: './../../styles/variables.module.css';
+@value secondary-bg-color from variables;
+
+.mainContainer {
+  height: 100vh;
+}
+
+.containerLeft {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 40px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.right {
+  background: #f0f1f3;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .containerLeft {
+    padding-left: 87px;
+    padding-right: 87px;
+    padding-bottom: 40px;
+    width: 100%;
+    max-width: 768px;
+  }
+  .right {
+    background-image: url('./../../images/pics/bg-calculator-tablet.png');
+    background-size: contain;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .right {
+    background-image: url('./../../images/pics/bg-calculator-desktop.png');
+    background-size: contain;
+    background-position: center right;
+    background-repeat: no-repeat;
+  }
+  .containerLeft {
+    width: 100%;
+    max-width: 605px;
+  }
+  .left {
+    flex-grow: 1;
+  }
+  .right {
+    width: 42%;
+  }
+}
