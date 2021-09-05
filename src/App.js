@@ -7,13 +7,12 @@ import DiaryDateCalendar from './components/DiaryDateCalendar/DiaryDateCalendar'
 import Header from './components/Header';
 
 function App() {
-  // return <MainPage />;
+  return <MainPage />;
   // return <RegistrationPage />;
   // return <LoginPage />;
   //return <CalculatorPage />;
   // return <DiaryDateCalendar />;
-  return <Header/>
-
+  // return <Header/>;
 }
 
 export default App;

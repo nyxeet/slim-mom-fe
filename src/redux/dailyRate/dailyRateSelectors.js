@@ -1,4 +1,4 @@
-const getCalories = state => state.dailyRate.dailyRate;
+const getCalories = state => state.dailyRate.calories;
 const getProducts = state => state.dailyRate.notAllowedProducts;
 
 // eslint-disable-next-line

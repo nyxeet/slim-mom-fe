@@ -7,7 +7,8 @@ import dailyRateSelector from '../../redux/dailyRate/dailyRateSelectors';
 const DailyCalorieIntake = () => {
    const calories = useSelector(dailyRateSelector.getCalories);
    const products = useSelector(dailyRateSelector.getProducts);
-
+   const filteredProducts = products.map(product => product.categories[0]).filter((item, index, arr) => arr.indexOf(item) === index)
+   console.log(filteredProducts);
    return (
       <div className={styles.wrapper}>
          <p className={styles.title}>
@@ -22,11 +23,11 @@ const DailyCalorieIntake = () => {
             </p>
 
             <ol className={styles.productsList}>
-               {products.map((product, id) => (
-                  <li key={id} className={styles.productsItem}>
+               {filteredProducts.map((product) => (
+                  <li key={product} className={styles.productsItem}>
                      {product}
                   </li>
-               ))}
+               ))} 
             </ol>
             <Link to="/auth/register" className={styles.button}>
                Начать худеть
