@@ -1,14 +1,10 @@
 import React from 'react';
 // import MainPage from './pages/MainPage';
-import RegistrationPage from './pages/RegistrationPage';
-import LoginPage from './pages/LoginPage';
-import DiaryDateCalendar from './components/DiaryDateCalendar/DiaryDateCalendar';
+import DiaryAddProductForm from './components/DiaryAddProductForm';
 
 function App() {
   // return <MainPage />;
-  // return <RegistrationPage />;
-  // return <LoginPage />;
-  return <DiaryDateCalendar />;
+  return <DiaryAddProductForm />;
 }
 
 export default App;
