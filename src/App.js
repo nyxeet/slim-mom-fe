@@ -6,12 +6,11 @@ import CalculatorPage from './pages/CalculatorPage';
 import DiaryDateCalendar from './components/DiaryDateCalendar/DiaryDateCalendar';
 
 function App() {
-  // return <MainPage />;
+  return <MainPage />;
   // return <RegistrationPage />;
   // return <LoginPage />;
   //return <CalculatorPage />;
-  return <DiaryDateCalendar />;
-
+  //return <DiaryDateCalendar />;
 }
 
 export default App;

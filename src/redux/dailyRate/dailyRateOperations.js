@@ -2,15 +2,15 @@ import axios from 'axios';
 import dailyRateActions from './dailyRateActions';
 import authOperations from '../auth/auth-operations';
 
-// axios.defaults.baseURL = 'https://slim-mom.herokuapp.com';
+const BASE_URL = 'http://localhost:3001/api';
 
 const onFetchDailyRates = values => dispatch => {
   dispatch(dailyRateActions.fetchDailyRateRequest());
 
   axios
-    .post('/daily-rate', values)
+    .post(`${BASE_URL}/user/getCalories`, values)
     .then(receivedData => {
-      dispatch(dailyRateActions.fetchDailyRateSuccess(receivedData.data));
+      dispatch(dailyRateActions.fetchDailyRateSuccess(receivedData.data.data));
     })
     .catch(error => {
       dispatch(dailyRateActions.fetchDailyRateError(error));
