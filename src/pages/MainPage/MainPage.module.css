@@ -2,6 +2,7 @@
 @value secondary-bg-color from variables;
 
 .background {
+  padding-top: 80px;
   height: 100vh;
   background-color: secondary-bg-color;
 }
