@@ -6,15 +6,17 @@ import LoginPage from './pages/LoginPage';
 import CalculatorPage from './pages/CalculatorPage';
 import DiaryDateCalendar from './components/DiaryDateCalendar/DiaryDateCalendar';
 import Header from './components/Header';
+import DiaryPage from './pages/DiaryPage';
 
 function App() {
-  return (
-    <>
-      <Header />
-      <MainPage />
-    </>
-  );
+  // return (
+  //   <>
+  //     <Header />
+  //     <MainPage />
+  //   </>
+  // );
 
+  return <DiaryPage />;
   // return <RegistrationPage />;
   // return <LoginPage />;
   //return <CalculatorPage />;

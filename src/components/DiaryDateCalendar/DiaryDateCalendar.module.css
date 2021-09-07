@@ -5,8 +5,9 @@
 .Wrapper {
   display: inline-flex;
   flex-direction: row;
-  align-items: center;
+  align-items: baseline;
   justify-content: flex-start;
+  margin-bottom: 31px;
 }
 
 .Datepicker {
@@ -40,6 +41,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .Wrapper {
+    margin-bottom: 60px;
+  }
+
   .Datepicker {
     width: 100%;
     max-width: 219px;

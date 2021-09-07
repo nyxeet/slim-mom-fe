@@ -1,0 +1,120 @@
+.List {
+  height: 300px;
+  width: 100%;
+  max-width: 600px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.List::-webkit-scrollbar {
+  width: 6px;
+
+  background-color: #f0f1f3;
+}
+
+.List::-webkit-scrollbar-thumb {
+  width: 6px;
+  height: 40px;
+
+  background: #264061;
+}
+
+.ListItem {
+  width: 100%;
+  margin-bottom: 15px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  transition: all 250ms ease-in;
+}
+
+.ListItem:hover .Name,
+.ListItem:hover .Weight,
+.ListItem:hover .Ccal {
+  font-weight: 700;
+}
+
+.Name {
+  width: 100%;
+  max-width: 239px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-right: 30px;
+
+  font-family: Verdana;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #212121;
+  padding-bottom: 20px;
+  transition: all 250ms ease-in;
+}
+
+.Weight {
+  width: 100%;
+  max-width: 105px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-right: 30px;
+
+  font-family: Verdana;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #212121;
+  padding-bottom: 20px;
+  text-align: end;
+  transition: all 250ms ease-in;
+}
+
+.Ccal {
+  width: 100%;
+  max-width: 105px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-right: 30px;
+
+  font-family: Verdana;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #212121;
+  padding-bottom: 20px;
+  text-align: end;
+  transition: all 250ms ease-in;
+}
+
+.CloseIconWrapper {
+  padding-bottom: 15px;
+}
+
+.CloseSVG {
+  stroke: #9b9faa;
+  cursor: pointer;
+  transition: all 250ms ease-in;
+}
+
+.CloseSVG:hover {
+  stroke: #000;
+}
+
+.HiddenBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 28px;
+  width: 100%;
+  max-width: 590px;
+  content: '';
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    #ffffff 42.19%
+  );
+}
+
+.Wrapper {
+  position: relative;
+}
