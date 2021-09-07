@@ -6,11 +6,14 @@ import fitnessIcon from '../../images/icons/Header/fitness.svg'
 import menuIcon from '../../images/icons/Header/menu.svg'
 import closeIcon from '../../images/icons/Header/closeIcon.svg'
 import NavMenu from '../NavMenu';
+import useMedia from "use-media";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = React.useState(false)
   const dispatch = useDispatch()
-  const isLoggedIn = useSelector(state => state.auth.isLogin)
+  const isLoggedIn = true;
+  const isDesktop = useMedia({ minWidth: "1280px" });
+    //useSelector(state => state.auth.isLogin)
   const user = useSelector(state => state.auth.user)
 
   const handleOpenMenu = () => {
@@ -25,7 +28,7 @@ const Header = () => {
           Slim<span>Mom</span>
         </div>
         <div className={styles.toolsContainer}>
-          {isLoggedIn && (<>
+          {isLoggedIn && !isDesktop &&(<>
             <img
               onClick={handleOpenMenu}
               width={`${menuOpen ? '12' : '18'}`}
@@ -36,6 +39,12 @@ const Header = () => {
               title='Открыть меню'
             />
           </>)}
+          {isLoggedIn && isDesktop && (
+            <>
+            <div className={styles.tool}>Дневник</div>
+            <div className={styles.tool}>Калькулятор</div>
+          </>)
+          }
           {!isLoggedIn && (<>
             <div className={styles.tool}>Вход</div>
             <div className={styles.tool}>Регистрация</div>
