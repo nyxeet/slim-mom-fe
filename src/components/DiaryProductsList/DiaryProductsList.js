@@ -44,31 +44,27 @@ const productList = [
 
 export default function DiaryProductsList() {
   return (
-    <section>
-      <div className={styles.Wrapper}>
-        <ul className={styles.List}>
-          {productList.map(({ name, weight, ccal }) => (
-            <li className={styles.ListItem} key={name}>
-              <p className={classNames(styles.Text, styles.Name)}>{name}</p>
-              <p className={classNames(styles.Text, styles.Weight)}>{weight}</p>
-              <p className={classNames(styles.Text, styles.Ccal)}>
-                {ccal} ккал
-              </p>
-              <p className={styles.CloseIconWrapper}>
-                <svg
-                  width="14"
-                  height="14"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className={styles.CloseSVG}
-                >
-                  <path d="M1 1l12 12M1 13L13 1" stroke-width="2" />
-                </svg>
-              </p>
-            </li>
-          ))}
-        </ul>
-        <div className={styles.HiddenBar}></div>
-      </div>
-    </section>
+    <div className={styles.Wrapper}>
+      <ul className={styles.List}>
+        {productList.map(({ name, weight, ccal }) => (
+          <li className={styles.ListItem} key={name}>
+            <p className={classNames(styles.Text, styles.Name)}>{name}</p>
+            <p className={classNames(styles.Text, styles.Weight)}>{weight}</p>
+            <p className={classNames(styles.Text, styles.Ccal)}>{ccal} ккал</p>
+            <p className={styles.CloseIconWrapper}>
+              <svg
+                width="14"
+                height="14"
+                xmlns="http://www.w3.org/2000/svg"
+                className={styles.CloseSVG}
+              >
+                <path d="M1 1l12 12M1 13L13 1" stroke-width="2" />
+              </svg>
+            </p>
+          </li>
+        ))}
+      </ul>
+      <div className={styles.HiddenBar}></div>
+    </div>
   );
 }

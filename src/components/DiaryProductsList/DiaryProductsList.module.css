@@ -3,16 +3,32 @@
 }
 
 .List {
-  height: 300px;
+  height: 218px;
   width: 100%;
   max-width: 305px;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
+.HiddenBar {
+  position: absolute;
+  display: none;
+  bottom: 0;
+  left: 0;
+  height: 28px;
+  width: 98%;
+  max-width: 590px;
+  content: '';
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    #ffffff 42.19%
+  );
+}
+
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .List {
-    height: 300px;
+    height: 255px;
     width: 100%;
     max-width: 590px;
     overflow-x: hidden;
@@ -45,19 +61,13 @@
 
 .ListItem {
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 
   display: flex;
   flex-direction: row;
   align-items: center;
   cursor: pointer;
   transition: all 250ms ease-in;
-}
-
-.ListItem:hover .Name,
-.ListItem:hover .Weight,
-.ListItem:hover .Ccal {
-  font-weight: 700;
 }
 
 .Text {
@@ -97,6 +107,16 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
+  .ListItem {
+    margin-bottom: 15px;
+  }
+
+  .ListItem:hover .Name,
+  .ListItem:hover .Weight,
+  .ListItem:hover .Ccal {
+    font-weight: 700;
+  }
+
   .Text {
     padding-bottom: 20px;
 
@@ -119,12 +139,22 @@
   .Ccal {
     width: 100%;
     max-width: 105px;
-    margin-right: 10px;
+    margin-right: 30px;
     text-align: right;
   }
 }
 
 @media screen and (min-width: 1280px) {
+  .ListItem {
+    margin-bottom: 15px;
+  }
+
+  .ListItem:hover .Name,
+  .ListItem:hover .Weight,
+  .ListItem:hover .Ccal {
+    font-weight: 700;
+  }
+
   .Text {
     padding-bottom: 20px;
 
@@ -147,14 +177,26 @@
   .Ccal {
     width: 100%;
     max-width: 105px;
-    margin-right: 10px;
+    margin-right: 30px;
     text-align: right;
   }
-}
 
-/* .CloseIconWrapper {
-  padding-bottom: 15px;
-} */
+  .HiddenBar {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    height: 28px;
+    width: 98%;
+    max-width: 590px;
+    content: '';
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      #ffffff 42.19%
+    );
+  }
+}
 
 .CloseSVG {
   stroke: #9b9faa;
@@ -164,19 +206,4 @@
 
 .CloseSVG:hover {
   stroke: #000;
-}
-
-.HiddenBar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 28px;
-  width: 98%;
-  max-width: 590px;
-  content: '';
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.5) 0%,
-    #ffffff 42.19%
-  );
 }
