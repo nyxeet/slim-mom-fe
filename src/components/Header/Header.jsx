@@ -29,7 +29,8 @@ const Header = () => {
           Slim<span>Mom</span>
         </div>
         <div className={styles.toolsContainer}>
-          {isLoggedIn && !isDesktop &&(<>
+          {isLoggedIn && !isDesktop && (<>
+            <Logout/>
             <img
               onClick={handleOpenMenu}
               width={`${menuOpen ? '12' : '18'}`}

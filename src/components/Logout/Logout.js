@@ -17,14 +17,16 @@ const Logout = () => {
   return (
     <>
       <div className={styles.logout}>
-        <span className={styles.userLogin}> {name} </span>
-        <button
-          type="button"
-          className={styles.exitButton}
-          // onClick={onLogOut}
-        >
-          Выйти
-        </button>
+        <div className={styles.container}>
+          <span className={styles.userLogin}> {name} </span>
+          <button
+            type="button"
+            className={styles.exitButton}
+            // onClick={onLogOut}
+          >
+            Выйти
+          </button>
+        </div>
       </div>
     </>
   );
