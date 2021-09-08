@@ -1,0 +1,68 @@
+.logout {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 40px;
+  background: #eff1f3;
+  align-items: center;
+}
+
+.container {
+  position: absolute;
+  right: calc((100% - 320px) / 2);
+}
+
+.userLogin {
+  padding-right: 22px;
+  margin-right: 22px;
+  color: #212121;
+  border-right: 2px solid #e0e0e0;
+  font-family: 'GothamPro-Bold';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 13px;
+  text-align: right;
+  letter-spacing: 0.04em;
+}
+
+.exitButton {
+  cursor: pointer;
+  margin-right: 15px;
+  border: none;
+  background-color: inherit;
+  color: #9b9faa;
+  font-family: 'GothamPro-Bold';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 13px;
+  letter-spacing: 0.04em;
+}
+
+@media screen and (min-width: 768px) {
+  .logout {
+    position: static;
+    height: 24px;
+    background: #fff;
+  }
+
+  .container {
+    position: static;
+  }
+  @media screen and (min-width: 1280px) {
+    .logout {
+      /* min-width: 535px; */
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 760px;
+      background: #eff1f3;
+    }
+
+    .exitButton {
+      margin-right: 0;
+    }
+  }
+}

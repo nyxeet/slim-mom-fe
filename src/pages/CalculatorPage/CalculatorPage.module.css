@@ -5,6 +5,10 @@
   height: 100vh;
 }
 
+.left {
+  padding-top: 130px;
+}
+
 .containerLeft {
   margin-left: auto;
   margin-right: auto;
@@ -27,6 +31,11 @@
     width: 100%;
     max-width: 768px;
   }
+
+  .left {
+    padding-top: 100px;
+  }
+
   .right {
     background-image: url('./../../images/pics/bg-calculator-tablet.png');
     background-size: contain;
@@ -48,6 +57,9 @@
     background-repeat: no-repeat;
   }
   .containerLeft {
+    margin-left: auto;
+    margin-right: 40px;
+
     width: 100%;
     max-width: 605px;
   }
@@ -56,5 +68,9 @@
   }
   .right {
     width: 42%;
+  }
+  .left,
+  .right {
+    padding-top: 60px;
   }
 }
