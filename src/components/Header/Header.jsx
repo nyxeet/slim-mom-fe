@@ -7,6 +7,7 @@ import menuIcon from '../../images/icons/Header/menu.svg'
 import closeIcon from '../../images/icons/Header/closeIcon.svg'
 import NavMenu from '../NavMenu';
 import useMedia from "use-media";
+import Logout from '../Logout';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = React.useState(false)
@@ -42,7 +43,8 @@ const Header = () => {
           {isLoggedIn && isDesktop && (
             <>
             <div className={styles.tool}>Дневник</div>
-            <div className={styles.tool}>Калькулятор</div>
+              <div className={styles.tool}>Калькулятор</div>
+              <Logout/>
           </>)
           }
           {!isLoggedIn && (<>
