@@ -70,7 +70,7 @@
   .RightSideBarContainer {
     display: flex;
     flex-direction: column;
-    padding: 137px 115px 162px 90px;
+    padding: 137px 115px 162px 40px;
     max-width: 535px;
   }
 
