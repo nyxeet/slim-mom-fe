@@ -6,12 +6,12 @@
 }
 
 .containerLeft {
-  margin-top: 146px;
+  padding-top: 40px;
+  padding-bottom: 60px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 40px;
+  padding-right: 0;
   width: 100%;
   max-width: 320px;
 }
@@ -22,9 +22,11 @@
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .containerLeft {
+    padding-top: 100px;
+    padding-bottom: 61px;
     padding-left: 87px;
     padding-right: 87px;
-    padding-bottom: 40px;
+
     width: 100%;
     max-width: 768px;
   }
@@ -49,6 +51,8 @@
     background-repeat: no-repeat;
   }
   .containerLeft {
+    padding-top: 137px;
+    padding-bottom: 40px;
     width: 100%;
     max-width: 605px;
   }

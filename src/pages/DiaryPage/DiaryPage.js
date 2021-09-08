@@ -9,7 +9,7 @@ const DiaryPage = () => {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.left}>
-        <div>Header</div>
+        <div>Header1</div>
         <div className={styles.containerLeft}>
           <DiaryDateCalendar />
           <DiaryAddProductForm />
@@ -17,6 +17,7 @@ const DiaryPage = () => {
         </div>
       </div>
       <div className={styles.right}>
+        <div>Header2</div>
         <div className={styles.containerRight}>
           <RightSideBar />
         </div>

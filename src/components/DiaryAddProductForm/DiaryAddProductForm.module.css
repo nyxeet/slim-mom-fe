@@ -3,18 +3,18 @@
 @value secondary-btn-color from '../../styles/variables.module.css';
 @value secondary-title-color from '../../styles/variables.module.css';
 
-/* .FormWrapper {
+/* .Form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  padding-top: 15px;
-
   width: 100%;
-  max-width: 290px;
-}
+  max-width: 163px;
+  margin-bottom: 60px;
+} */
 
+/*
 .Form {
   width: 100%;
 
@@ -85,6 +85,10 @@
   width: 100%;
   max-width: 176px;
 } */
+
+.Form {
+  display: none;
+}
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .Form {

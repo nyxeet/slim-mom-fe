@@ -5,7 +5,7 @@
 .Wrapper {
   display: inline-flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
   justify-content: flex-start;
   margin-bottom: 31px;
 }

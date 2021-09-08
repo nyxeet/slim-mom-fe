@@ -1,9 +1,33 @@
+.Wrapper {
+  position: relative;
+}
+
 .List {
   height: 300px;
   width: 100%;
-  max-width: 600px;
+  max-width: 305px;
   overflow-x: hidden;
   overflow-y: scroll;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .List {
+    height: 300px;
+    width: 100%;
+    max-width: 590px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .List {
+    height: 300px;
+    width: 100%;
+    max-width: 600px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
 }
 
 .List::-webkit-scrollbar {
@@ -36,59 +60,101 @@
   font-weight: 700;
 }
 
-.Name {
-  width: 100%;
-  max-width: 239px;
-  border-bottom: 1px solid #e0e0e0;
-  margin-right: 30px;
+.Text {
+  padding-bottom: 10px;
 
+  border-bottom: 1px solid #e0e0e0;
   font-family: Verdana;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  letter-spacing: 0.04em;
   color: #212121;
-  padding-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+
+.Name {
+  width: 100%;
+  max-width: 125px;
+  margin-right: 10px;
   transition: all 250ms ease-in;
+  text-align: left;
 }
 
 .Weight {
   width: 100%;
-  max-width: 105px;
-  border-bottom: 1px solid #e0e0e0;
-  margin-right: 30px;
-
-  font-family: Verdana;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  color: #212121;
-  padding-bottom: 20px;
-  text-align: end;
+  max-width: 50px;
+  margin-right: 10px;
   transition: all 250ms ease-in;
+  text-align: center;
 }
 
 .Ccal {
   width: 100%;
-  max-width: 105px;
-  border-bottom: 1px solid #e0e0e0;
-  margin-right: 30px;
-
-  font-family: Verdana;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  color: #212121;
-  padding-bottom: 20px;
-  text-align: end;
+  max-width: 70px;
+  margin-right: 10px;
   transition: all 250ms ease-in;
+  text-align: center;
 }
 
-.CloseIconWrapper {
-  padding-bottom: 15px;
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .Text {
+    padding-bottom: 20px;
+
+    letter-spacing: 0.04em;
+  }
+
+  .Name {
+    width: 100%;
+    max-width: 239px;
+    margin-right: 30px;
+  }
+
+  .Weight {
+    width: 100%;
+    max-width: 105px;
+    margin-right: 30px;
+    text-align: right;
+  }
+
+  .Ccal {
+    width: 100%;
+    max-width: 105px;
+    margin-right: 10px;
+    text-align: right;
+  }
 }
+
+@media screen and (min-width: 1280px) {
+  .Text {
+    padding-bottom: 20px;
+
+    letter-spacing: 0.04em;
+  }
+
+  .Name {
+    width: 100%;
+    max-width: 239px;
+    margin-right: 30px;
+  }
+
+  .Weight {
+    width: 100%;
+    max-width: 105px;
+    margin-right: 30px;
+    text-align: right;
+  }
+
+  .Ccal {
+    width: 100%;
+    max-width: 105px;
+    margin-right: 10px;
+    text-align: right;
+  }
+}
+
+/* .CloseIconWrapper {
+  padding-bottom: 15px;
+} */
 
 .CloseSVG {
   stroke: #9b9faa;
@@ -105,7 +171,7 @@
   bottom: 0;
   left: 0;
   height: 28px;
-  width: 100%;
+  width: 98%;
   max-width: 590px;
   content: '';
   background: linear-gradient(
@@ -113,8 +179,4 @@
     rgba(255, 255, 255, 0.5) 0%,
     #ffffff 42.19%
   );
-}
-
-.Wrapper {
-  position: relative;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import styles from './DiaryProductsList.module.css';
 
@@ -48,9 +49,11 @@ export default function DiaryProductsList() {
         <ul className={styles.List}>
           {productList.map(({ name, weight, ccal }) => (
             <li className={styles.ListItem} key={name}>
-              <p className={styles.Name}>{name}</p>
-              <p className={styles.Weight}>{weight} г</p>
-              <p className={styles.Ccal}>{ccal} ккал</p>
+              <p className={classNames(styles.Text, styles.Name)}>{name}</p>
+              <p className={classNames(styles.Text, styles.Weight)}>{weight}</p>
+              <p className={classNames(styles.Text, styles.Ccal)}>
+                {ccal} ккал
+              </p>
               <p className={styles.CloseIconWrapper}>
                 <svg
                   width="14"
