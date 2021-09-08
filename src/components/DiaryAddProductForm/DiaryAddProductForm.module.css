@@ -182,6 +182,27 @@
   .Mobile-Btn {
     display: none;
   }
+
+  .FindBox {
+    position: relative;
+  }
+
+  .Findlist {
+    position: absolute;
+    height: 300px;
+    overflow-y: hidden;
+    overflow-y: scroll;
+    background: #fff;
+    /* !чтобы за ним нельзя нажимать */
+  }
+
+  .Findlist__item {
+    cursor: pointer;
+  }
+
+  .Findlist__item:hover {
+    background: #ccc;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -276,5 +297,16 @@
 
   .Mobile-Btn {
     display: none;
+  }
+
+  .FindBox {
+  }
+
+  .Findlist__item {
+    cursor: pointer;
+  }
+
+  .Findlist__item:hover {
+    background: #ccc;
   }
 }

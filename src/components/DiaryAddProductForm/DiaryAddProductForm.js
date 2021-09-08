@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import Button from '../Button';
+import { useDispatch, useSelector } from 'react-redux';
+
+//import { logOut } from '../../redux/auth/auth.operations';
+//import { getUserName, isAuthenticated } from '../../redux/auth/auth.selectors';
+
+import productsOperations from '../../redux/products/products-operations';
+import productsSelectors from '../../redux/products/products-selectors';
 
 import styles from './DiaryAddProductForm.module.css';
 
 export default function DiaryAddProductForm() {
   const [productName, setProductName] = useState('');
   const [productWeight, setProductWeight] = useState('');
+
+  const dispatch = useDispatch();
+  const allProducts = useSelector(productsSelectors.getContacts);
 
   const onChangeInput = ({ target }) => {
     const { name, value } = target;
@@ -24,18 +34,21 @@ export default function DiaryAddProductForm() {
         break;
     }
   };
+
   const onSubmitForm = event => {
     event.preventDefault();
 
     clearForm();
-    console.log(productName);
-    console.log(productWeight);
+    dispatch(productsOperations.getProduct(productName));
+    // console.log(productName);
+    // console.log(productWeight);
   };
 
   const clearForm = () => {
     setProductName('');
     setProductWeight('');
   };
+  console.log('allProducts:', allProducts);
 
   return (
     <form onSubmit={onSubmitForm} className={styles.Form} id="form">
@@ -54,6 +67,18 @@ export default function DiaryAddProductForm() {
         <label className={styles.Label} htmlFor="productName">
           Введите название продукта
         </label>
+
+        <div className={styles.FindBox}>
+          {allProducts.length > 0 && (
+            <ul className={styles.Findlist}>
+              {allProducts.map(item => (
+                <li key={item} className={styles.Findlist__item}>
+                  {item.title.ru}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
       <div className={classNames(styles.weightWrapper)}>
         <input
