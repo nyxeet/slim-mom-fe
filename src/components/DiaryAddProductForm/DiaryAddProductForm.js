@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import Button from '../Button';
 
 import styles from './DiaryAddProductForm.module.css';
 
@@ -82,6 +83,10 @@ export default function DiaryAddProductForm() {
           <path d="M14 8H8V14H6V8H0V6H6V0H8V6H14V8Z" fill="white" />
         </svg>
       </button>
+
+      <Button type="submit" active={true} hide={true}>
+        Добавить
+      </Button>
     </form>
   );
 }

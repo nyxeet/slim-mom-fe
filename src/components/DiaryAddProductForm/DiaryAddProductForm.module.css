@@ -3,91 +3,90 @@
 @value secondary-btn-color from '../../styles/variables.module.css';
 @value secondary-title-color from '../../styles/variables.module.css';
 
-/* .Form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+@media screen and (max-width: 767px) {
+  .Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-  width: 100%;
-  max-width: 163px;
-  margin-bottom: 60px;
-} */
+    width: 100%;
+  }
 
-/*
-.Form {
-  width: 100%;
+  .productWrapper,
+  .weightWrapper {
+    position: relative;
 
-  margin-bottom: 60px;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-.Wrapper {
-  position: relative;
-  width: 100%;
-  margin-bottom: 40px;
-}
+    width: 100%;
+  }
 
-.TheLastOne {
-  margin-bottom: 0;
-} */
+  .productWrapper {
+    margin-bottom: 30px;
+  }
 
-/* .Label {
-  position: absolute;
-  left: 0;
-  top: -7px;
-  width: 100%;
+  .weightWrapper {
+    margin-bottom: 60px;
+  }
 
-  font-family: primary-font;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  color: primary-text-color;
+  .Input {
+    width: 100%;
 
-  transition: all 250ms ease-in;
-}
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    transition: all 250ms ease-in;
 
-.Input {
-  width: 100%;
+    font-family: primary-font;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    color: primary-text-color;
+  }
 
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 15px;
-  border: none;
-  border-bottom: 1px solid #e0e0e0;
+  .Input:focus,
+  .Input:not(:placeholder-shown) {
+    outline: none;
+    border-bottom: 1px solid secondary-btn-color;
+  }
 
-  font-family: primary-font;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  color: primary-text-color;
+  .Input:focus + .Label,
+  .Input:not(:placeholder-shown) + .Label {
+    color: secondary-title-color;
+    left: 15px;
+    top: -20px;
+  }
 
-  transition: all 250ms ease-in;
-}
+  .Label {
+    position: absolute;
+    top: 0;
+    left: 0;
 
-.Input:focus,
-.Input:not(:placeholder-shown) {
-  outline: none;
-  border-bottom: 1px solid secondary-btn-color;
-}
+    font-family: Verdana;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: right;
+    letter-spacing: 0.04em;
 
-.Input:focus + .Label,
-.Input:not(:placeholder-shown) + .Label {
-  color: secondary-title-color;
-  left: 15px;
-  top: -15px;
-} */
+    color: #9b9faa;
+    transition: all 250ms ease-in;
+  }
 
-/* .BtnWrapper {
-  margin-bottom: 20px;
+  .BtnWrapper {
+    display: none;
+  }
 
-  width: 100%;
-  max-width: 176px;
-} */
-
-.Form {
-  display: none;
+  .Mobile-Btn {
+    display: block;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -179,6 +178,10 @@
   .BtnWrapper:hover {
     transform: scale(1.05);
   }
+
+  .Mobile-Btn {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -269,5 +272,9 @@
 
   .BtnWrapper:hover {
     transform: scale(1.05);
+  }
+
+  .Mobile-Btn {
+    display: none;
   }
 }

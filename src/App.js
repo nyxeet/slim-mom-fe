@@ -7,16 +7,17 @@ import CalculatorPage from './pages/CalculatorPage';
 import DiaryDateCalendar from './components/DiaryDateCalendar/DiaryDateCalendar';
 import Header from './components/Header';
 import DiaryPage from './pages/DiaryPage';
+import AddProductMobileForm from './components/AddProductMobileForm';
 
 function App() {
-  // return (
-  //   <>
-  //     <Header />
-  //     <CalculatorPage />
-  //   </>
-  // );
+  return (
+    <>
+      <Header />
+      <CalculatorPage />
+    </>
+  );
 
-  return <DiaryPage />;
+  // return <AddProductMobileForm />;
   // return <RegistrationPage />;
   // return <LoginPage />;
   //return <CalculatorPage />;
