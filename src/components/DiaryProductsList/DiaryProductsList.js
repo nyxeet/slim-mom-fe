@@ -3,50 +3,50 @@ import classNames from 'classnames';
 
 import styles from './DiaryProductsList.module.css';
 
-const productList = [
-  { name: 'apple', weight: 100, ccal: 320 },
-  { name: 'пирог', weight: 100, ccal: 320 },
-  { name: 'конфета', weight: 100, ccal: 320 },
-  { name: 'стул', weight: 100, ccal: 320 },
-  { name: 'столешница', weight: 100, ccal: 320 },
-  { name: 'картошка', weight: 100, ccal: 320 },
-  { name: 'ухо', weight: 100, ccal: 320 },
-  { name: 'пиво', weight: 100, ccal: 320 },
-  { name: 'водка', weight: 100, ccal: 320 },
-  { name: 'хлеб', weight: 100, ccal: 320 },
-  { name: 'макарошки', weight: 100, ccal: 320 },
-  { name: 'аджика', weight: 100, ccal: 320 },
-  { name: 'apple', weight: 100, ccal: 320 },
-  { name: 'пирог', weight: 100, ccal: 320 },
-  { name: 'конфета', weight: 100, ccal: 320 },
-  { name: 'стул', weight: 100, ccal: 320 },
-  { name: 'столешница', weight: 100, ccal: 320 },
-  { name: 'картошка', weight: 100, ccal: 320 },
-  { name: 'ухо', weight: 100, ccal: 320 },
-  { name: 'пиво', weight: 100, ccal: 320 },
-  { name: 'водка', weight: 100, ccal: 320 },
-  { name: 'хлеб', weight: 100, ccal: 320 },
-  { name: 'макарошки', weight: 100, ccal: 320 },
-  { name: 'аджика', weight: 100, ccal: 320 },
-  { name: 'apple', weight: 100, ccal: 320 },
-  { name: 'пирог', weight: 100, ccal: 320 },
-  { name: 'конфета', weight: 100, ccal: 320 },
-  { name: 'стул', weight: 100, ccal: 320 },
-  { name: 'столешница', weight: 100, ccal: 320 },
-  { name: 'картошка', weight: 100, ccal: 320 },
-  { name: 'ухо', weight: 100, ccal: 320 },
-  { name: 'пиво', weight: 100, ccal: 320 },
-  { name: 'водка', weight: 100, ccal: 320 },
-  { name: 'хлеб', weight: 100, ccal: 320 },
-  { name: 'макарошки', weight: 100, ccal: 320 },
-  { name: 'аджика', weight: 100, ccal: 320 },
-];
+// const productList = [
+//   { name: 'apple', weight: 100, ccal: 320 },
+//   { name: 'пирог', weight: 100, ccal: 320 },
+//   { name: 'конфета', weight: 100, ccal: 320 },
+//   { name: 'стул', weight: 100, ccal: 320 },
+//   { name: 'столешница', weight: 100, ccal: 320 },
+//   { name: 'картошка', weight: 100, ccal: 320 },
+//   { name: 'ухо', weight: 100, ccal: 320 },
+//   { name: 'пиво', weight: 100, ccal: 320 },
+//   { name: 'водка', weight: 100, ccal: 320 },
+//   { name: 'хлеб', weight: 100, ccal: 320 },
+//   { name: 'макарошки', weight: 100, ccal: 320 },
+//   { name: 'аджика', weight: 100, ccal: 320 },
+//   { name: 'apple', weight: 100, ccal: 320 },
+//   { name: 'пирог', weight: 100, ccal: 320 },
+//   { name: 'конфета', weight: 100, ccal: 320 },
+//   { name: 'стул', weight: 100, ccal: 320 },
+//   { name: 'столешница', weight: 100, ccal: 320 },
+//   { name: 'картошка', weight: 100, ccal: 320 },
+//   { name: 'ухо', weight: 100, ccal: 320 },
+//   { name: 'пиво', weight: 100, ccal: 320 },
+//   { name: 'водка', weight: 100, ccal: 320 },
+//   { name: 'хлеб', weight: 100, ccal: 320 },
+//   { name: 'макарошки', weight: 100, ccal: 320 },
+//   { name: 'аджика', weight: 100, ccal: 320 },
+//   { name: 'apple', weight: 100, ccal: 320 },
+//   { name: 'пирог', weight: 100, ccal: 320 },
+//   { name: 'конфета', weight: 100, ccal: 320 },
+//   { name: 'стул', weight: 100, ccal: 320 },
+//   { name: 'столешница', weight: 100, ccal: 320 },
+//   { name: 'картошка', weight: 100, ccal: 320 },
+//   { name: 'ухо', weight: 100, ccal: 320 },
+//   { name: 'пиво', weight: 100, ccal: 320 },
+//   { name: 'водка', weight: 100, ccal: 320 },
+//   { name: 'хлеб', weight: 100, ccal: 320 },
+//   { name: 'макарошки', weight: 100, ccal: 320 },
+//   { name: 'аджика', weight: 100, ccal: 320 },
+// ];
 
 export default function DiaryProductsList() {
   return (
     <div className={styles.Wrapper}>
       <ul className={styles.List}>
-        {productList.map(({ name, weight, ccal }) => (
+        {/* {productList.map(({ name, weight, ccal }) => (
           <li className={styles.ListItem} key={name}>
             <p className={classNames(styles.Text, styles.Name)}>{name}</p>
             <p className={classNames(styles.Text, styles.Weight)}>{weight}</p>
@@ -62,7 +62,7 @@ export default function DiaryProductsList() {
               </svg>
             </p>
           </li>
-        ))}
+        ))} */}
       </ul>
       <div className={styles.HiddenBar}></div>
     </div>

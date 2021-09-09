@@ -2,60 +2,82 @@ import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import Button from '../Button';
 import { useDispatch, useSelector } from 'react-redux';
-import getAllProducts from '../../services/api';
-//import { logOut } from '../../redux/auth/auth.operations';
-//import { getUserName, isAuthenticated } from '../../redux/auth/auth.selectors';
+import fetch from '../../services/api';
 
-import productsOperations from '../../redux/products/products-operations';
-import productsSelectors from '../../redux/products/products-selectors';
+// import productsOperations from '../../redux/products/products-operations';
+// import productsSelectors from '../../redux/products/products-selectors';
 
 import styles from './DiaryAddProductForm.module.css';
 
 export default function DiaryAddProductForm() {
   const [productName, setProductName] = useState('');
+  const [productId, setProductId] = useState('');
   const [productWeight, setProductWeight] = useState('');
   const [productList, setProductList] = useState([]);
-  // const dispatch = useDispatch();
-  // const allProducts = useSelector(productsSelectors.getContacts);
+  const [isVisible, setIsVisible] = useState(true);
 
-  const onChangeInput = ({ target }) => {
-    const { name, value } = target;
-
-    switch (name) {
-      case 'productName':
-        setProductName(value);
-        break;
-
-      case 'productWeight':
-        setProductWeight(value);
-        break;
-
-      default:
-        break;
-    }
+  const onChangeWeight = ({ target }) => {
+    setProductWeight(target.value);
   };
 
-  useEffect(() => {
-    // вызываем функцию запроса на сервак
-    console.log(productName);
-    const data = getAllProducts(productName); // только асинхронность
-    setProductList(data);
-  }, [productName]);
+  const onChangeProductInput = async ({ target: { value } }) => {
+    setProductName(value);
+    setIsVisible(true);
+    // const normalizedQuerry = target.value.replace(/[\])}[{(]/g, '');
+    await fetch.getAllProducts(value).then(setProductList);
+  };
+  // как искать на серваке продукт без учета скобок?
+  const onProductClick = event => {
+    const { id, title } = event.target;
 
-  const onSubmitForm = event => {
+    setProductId(id);
+    setProductName(title);
+    setIsVisible(false);
+  };
+
+  const onSubmitForm = async event => {
     event.preventDefault();
 
-    // clearForm();
-    // dispatch(productsOperations.getProduct(productName));
-    // console.log(productName);
-    // console.log(productWeight);
+    if (!productId) {
+      await fetch.getAllProducts(productName).then(res => {
+        if (res.length > 1) {
+          alert('Выберите 1 продукт');
+          return;
+        }
+
+        if (res.length === 0) {
+          alert('Нет продукта соответствующему поиску');
+          return;
+        }
+
+        if (res.length === 1) {
+          const id = res[0]._id;
+          productId(id);
+        }
+      });
+    }
+
+    if (!productWeight) {
+      alert('Выберите вес продукта');
+      return;
+    }
+
+    console.log('====================================');
+    console.log('productId:', productId);
+    console.log('productWeight:', productWeight);
+    console.log('====================================');
+
+    clearForm();
   };
 
-  // const clearForm = () => {
-  //   setProductName('');
-  //   setProductWeight('');
-  // };
-  // console.log('allProducts:', allProducts);
+  // сделать редюсер на отправку id, weight на сервер, а получение данных записать в глобальный стор
+
+  const clearForm = () => {
+    setProductName('');
+    setProductWeight('');
+    setProductList([]);
+    setIsVisible(true);
+  };
 
   return (
     <form onSubmit={onSubmitForm} className={styles.Form} id="form">
@@ -65,7 +87,7 @@ export default function DiaryAddProductForm() {
           type="text"
           name="productName"
           value={productName}
-          onChange={onChangeInput}
+          onChange={onChangeProductInput}
           autoComplete="off"
           placeholder=" "
           id="productName"
@@ -75,17 +97,23 @@ export default function DiaryAddProductForm() {
           Введите название продукта
         </label>
 
-        {/* <div className={styles.FindBox}>
-          {productList.length > 0 && (
-            <ul className={styles.Findlist}>
-              {productList.map(item => (
-                <li key={item} className={styles.Findlist__item}>
-                  {item.title.ru}
+        {productList.length > 0 && isVisible && (
+          <div className={styles.FindBox}>
+            <ul className={styles.Findlist} role="menu">
+              {productList.map(({ _id, title }) => (
+                <li
+                  onClick={onProductClick}
+                  title={title.ru}
+                  key={_id}
+                  id={_id}
+                  className={styles.Findlist__item}
+                >
+                  {title.ru}
                 </li>
               ))}
             </ul>
-          )}
-        </div> */}
+          </div>
+        )}
       </div>
       <div className={classNames(styles.weightWrapper)}>
         <input
@@ -93,7 +121,7 @@ export default function DiaryAddProductForm() {
           type="number"
           name="productWeight"
           value={productWeight}
-          onChange={onChangeInput}
+          onChange={onChangeWeight}
           autoComplete="off"
           placeholder=" "
           id="productWeight"
