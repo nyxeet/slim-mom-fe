@@ -15,9 +15,9 @@ export default function DiaryAddProductForm() {
   const [productWeight, setProductWeight] = useState('');
   const [productList, setProductList] = useState([]);
   const [isVisible, setIsVisible] = useState(true);
-  // const userDate = useSelector(productsSelectors.getDate);
+  const date = useSelector(productsSelectors.getDate);
   const dispatch = useDispatch();
-  const userDate = '10-09-2021';
+
   const onChangeWeight = ({ target }) => {
     setProductWeight(target.value);
   };
@@ -64,13 +64,13 @@ export default function DiaryAddProductForm() {
       return;
     }
 
-    dispatch(
-      productsOperations.addProduct({
-        productId: '5d51694802b2373622ff5539',
-        date: '10-23-2020',
-        weight: '100',
-      }),
-    );
+    const newProduct = {
+      productId,
+      date,
+      weight: Number(productWeight),
+    };
+
+    dispatch(productsOperations.addProduct(newProduct));
 
     clearForm();
   };

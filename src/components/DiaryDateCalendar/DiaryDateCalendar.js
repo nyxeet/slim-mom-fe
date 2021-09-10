@@ -14,7 +14,7 @@ export default function DiaryDateCalendar() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const userDate = format(date, 'dd-MM-yyyy');
+    const userDate = format(date, 'MM-dd-yyyy');
     dispatch(productsActions.dateValue(userDate));
   }, [date]);
 
