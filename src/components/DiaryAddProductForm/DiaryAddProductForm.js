@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import Button from '../Button';
 import { useDispatch, useSelector } from 'react-redux';
@@ -75,14 +75,14 @@ export default function DiaryAddProductForm() {
     clearForm();
   };
 
-  // сделать редюсер на отправку id, weight на сервер, а получение данных записать в глобальный стор
-
   const clearForm = () => {
     setProductName('');
     setProductWeight('');
     setProductList([]);
     setIsVisible(true);
   };
+
+  // todo styles
 
   return (
     <form onSubmit={onSubmitForm} className={styles.Form} id="form">
