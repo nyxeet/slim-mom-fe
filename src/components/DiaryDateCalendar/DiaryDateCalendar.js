@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import format from 'date-fns/format';
 import DatePicker from 'react-datepicker';
+import { ru } from 'date-fns/locale';
+import productsActions from '../../redux/products/products-actions';
+
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './DiaryDateCalendar.module.css';
-import { ru } from 'date-fns/locale';
-
-import productsActions from '../../redux/products/products-actions';
 
 export default function DiaryDateCalendar() {
   const [date, setDate] = useState(new Date());
@@ -16,7 +16,7 @@ export default function DiaryDateCalendar() {
   useEffect(() => {
     const userDate = format(date, 'MM-dd-yyyy');
     dispatch(productsActions.dateValue(userDate));
-  }, [date]);
+  }, [dispatch, date]);
 
   const changeDate = inputDate => setDate(inputDate);
   const openCalendar = () => setIsVisibe(true);

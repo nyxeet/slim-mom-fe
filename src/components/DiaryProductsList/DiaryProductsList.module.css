@@ -26,26 +26,6 @@
   );
 }
 
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .List {
-    height: 255px;
-    width: 100%;
-    max-width: 590px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .List {
-    height: 300px;
-    width: 100%;
-    max-width: 600px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
-}
-
 .List::-webkit-scrollbar {
   width: 6px;
 
@@ -106,7 +86,25 @@
   text-align: center;
 }
 
+.CloseSVG {
+  stroke: #9b9faa;
+  cursor: pointer;
+  transition: all 250ms ease-in;
+}
+
+.CloseSVG:hover {
+  stroke: #000;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1279px) {
+  .List {
+    height: 255px;
+    width: 100%;
+    max-width: 590px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
   .ListItem {
     margin-bottom: 15px;
   }
@@ -145,14 +143,33 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .List {
+    height: 300px;
+    width: 100%;
+    max-width: 600px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .List::-webkit-scrollbar {
+    width: 6px;
+
+    background-color: #f0f1f3;
+  }
+
+  .List::-webkit-scrollbar-thumb {
+    width: 6px;
+    height: 40px;
+
+    background: #264061;
+  }
+
   .ListItem {
     margin-bottom: 15px;
   }
 
-  .ListItem:hover .Name,
-  .ListItem:hover .Weight,
-  .ListItem:hover .Ccal {
-    font-weight: 700;
+  .ListItem:hover {
+    background-color: #f0f1f3;
   }
 
   .Text {
@@ -196,14 +213,4 @@
       #ffffff 42.19%
     );
   }
-}
-
-.CloseSVG {
-  stroke: #9b9faa;
-  cursor: pointer;
-  transition: all 250ms ease-in;
-}
-
-.CloseSVG:hover {
-  stroke: #000;
 }

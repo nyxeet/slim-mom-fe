@@ -3,6 +3,8 @@ import producstActions from './products-actions';
 
 const productListReducer = createReducer([], {
   [producstActions.getProductsSuccess]: (_, { payload }) => payload,
+  [producstActions.getDayProductsSuccess]: (_, { payload }) => payload,
+  [producstActions.removeProductSuccess]: (_, { payload }) => payload,
 });
 
 const dateReducer = createReducer('', {

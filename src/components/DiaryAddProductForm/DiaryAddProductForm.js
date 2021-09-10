@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
 import Button from '../Button';
-import { useDispatch, useSelector } from 'react-redux';
-import fetch from '../../services/api';
-
 import productsSelectors from '../../redux/products/products-selectors';
 import productsOperations from '../../redux/products/products-operations';
 
@@ -26,7 +24,9 @@ export default function DiaryAddProductForm() {
     setProductName(value);
     setIsVisible(true);
     const normalizedQuerry = value.replace(/[\])}[{(]/g, '');
-    await fetch.getAllProducts(normalizedQuerry).then(setProductList);
+    await productsOperations
+      .getAllProducts(normalizedQuerry)
+      .then(setProductList);
   };
 
   const onProductClick = event => {
@@ -41,7 +41,7 @@ export default function DiaryAddProductForm() {
     event.preventDefault();
 
     if (!productId) {
-      await fetch.getAllProducts(productName).then(res => {
+      await productsOperations.getAllProducts(productName).then(res => {
         if (res.length > 1) {
           alert('Выберите 1 продукт');
           return;
