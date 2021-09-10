@@ -3,7 +3,7 @@
 import axios from 'axios';
 import producstActions from './products-actions';
 
-axios.defaults.baseURL = 'http://localhost:3000/api/product/';
+// axios.defaults.baseURL = 'http://localhost:3000/api/days';
 
 const token = {
   on() {
@@ -14,17 +14,23 @@ const token = {
   },
 };
 
-const getProduct = product => async dispatch => {
-  dispatch(producstActions.productsFetchSuccessRequest());
+const addProduct = newProduct => async dispatch => {
+  //  ! пометь потом
+  token.on();
+  dispatch(producstActions.getProductsRequest());
 
   try {
-    const response = await axios.get(`/?productName=${product}`);
-    dispatch(producstActions.productsFetchSuccess(response.data.data.result));
+    const { data } = await axios.post(
+      'http://localhost:3000/api/days/addProduct',
+      newProduct,
+    );
+    console.log(data);
+    // dispatch(producstActions.getProductsSuccess(data));
   } catch (error) {
-    dispatch(producstActions.productsFetchSuccessError(error.message));
+    dispatch(producstActions.getProductsError(error.message));
   }
 };
 
 export default {
-  getProduct,
+  addProduct,
 };

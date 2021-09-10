@@ -4,8 +4,8 @@ import Button from '../Button';
 import { useDispatch, useSelector } from 'react-redux';
 import fetch from '../../services/api';
 
-// import productsOperations from '../../redux/products/products-operations';
-// import productsSelectors from '../../redux/products/products-selectors';
+import productsSelectors from '../../redux/products/products-selectors';
+import productsOperations from '../../redux/products/products-operations';
 
 import styles from './DiaryAddProductForm.module.css';
 
@@ -15,7 +15,9 @@ export default function DiaryAddProductForm() {
   const [productWeight, setProductWeight] = useState('');
   const [productList, setProductList] = useState([]);
   const [isVisible, setIsVisible] = useState(true);
-
+  // const userDate = useSelector(productsSelectors.getDate);
+  const dispatch = useDispatch();
+  const userDate = '10-09-2021';
   const onChangeWeight = ({ target }) => {
     setProductWeight(target.value);
   };
@@ -23,10 +25,10 @@ export default function DiaryAddProductForm() {
   const onChangeProductInput = async ({ target: { value } }) => {
     setProductName(value);
     setIsVisible(true);
-    // const normalizedQuerry = target.value.replace(/[\])}[{(]/g, '');
-    await fetch.getAllProducts(value).then(setProductList);
+    const normalizedQuerry = value.replace(/[\])}[{(]/g, '');
+    await fetch.getAllProducts(normalizedQuerry).then(setProductList);
   };
-  // как искать на серваке продукт без учета скобок?
+
   const onProductClick = event => {
     const { id, title } = event.target;
 
@@ -62,10 +64,13 @@ export default function DiaryAddProductForm() {
       return;
     }
 
-    console.log('====================================');
-    console.log('productId:', productId);
-    console.log('productWeight:', productWeight);
-    console.log('====================================');
+    dispatch(
+      productsOperations.addProduct({
+        productId: '5d51694802b2373622ff5539',
+        date: '10-23-2020',
+        weight: '100',
+      }),
+    );
 
     clearForm();
   };

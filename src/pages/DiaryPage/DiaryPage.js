@@ -6,7 +6,7 @@ import DiaryDateCalendar from '../../components/DiaryDateCalendar';
 import DiaryAddProductForm from '../../components/DiaryAddProductForm/DiaryAddProductForm';
 import DiaryAddProductList from '../../components/DiaryProductsList';
 import AddProductMobileForm from '../../components/AddProductMobileForm';
-
+import Header from '../../components/Header';
 import styles from './DiaryPage.module.css';
 
 const DiaryPage = () => {
@@ -14,7 +14,7 @@ const DiaryPage = () => {
     <>
       <div className={styles.mainContainer}>
         <div className={styles.left}>
-          <div>Header1</div>
+          <Header />
           <div className={styles.containerLeft}>
             <DiaryDateCalendar />
             <DiaryAddProductForm />

@@ -19,40 +19,40 @@ import {
 import { PublicRoute, PrivateRoute } from './components/CustomRoutes';
 
 function App() {
-  // return (
-  //   <>
-  //     <Header />
-  //     {/* // todo: Добавить Suspense,лоадер и ленивую загрузку по желанию или удалить закоментрованную часть*/}
-  //     {/* <Suspense fallback={<h1>Loading..</h1>}> */}
-  //     <Switch>
-  //       <PublicRoute
-  //         exact
-  //         path={homeLink}
-  //         restricted
-  //         redirectTo={calculatorLink}
-  //       >
-  //         <MainPage />
-  //       </PublicRoute>
+  return (
+    <>
+      <Header />
+      {/* // todo: Добавить Suspense,лоадер и ленивую загрузку по желанию или удалить закоментрованную часть*/}
+      {/* <Suspense fallback={<h1>Loading..</h1>}> */}
+      <Switch>
+        <PublicRoute
+          exact
+          path={homeLink}
+          restricted
+          redirectTo={calculatorLink}
+        >
+          <MainPage />
+        </PublicRoute>
 
-  //       <PublicRoute path={registrationLink} restricted redirectTo={diaryLink}>
-  //         <RegistrationPage />
-  //       </PublicRoute>
+        <PublicRoute path={registrationLink} restricted redirectTo={diaryLink}>
+          <RegistrationPage />
+        </PublicRoute>
 
-  //       <PublicRoute path={loginLink} restricted redirectTo={diaryLink}>
-  //         <LoginPage />
-  //       </PublicRoute>
+        <PublicRoute path={loginLink} restricted redirectTo={diaryLink}>
+          <LoginPage />
+        </PublicRoute>
 
-  //       <PrivateRoute path={diaryLink} redirectTo={loginLink}>
-  //         <DiaryDateCalendar />
-  //       </PrivateRoute>
+        <PrivateRoute path={diaryLink} redirectTo={loginLink}>
+          <DiaryDateCalendar />
+        </PrivateRoute>
 
-  //       <PrivateRoute path={calculatorLink} redirectTo={loginLink}>
-  //         <CalculatorPage />
-  //       </PrivateRoute>
-  //     </Switch>
-  //     {/* </Suspense> */}
-  //   </>
-  // );
+        <PrivateRoute path={calculatorLink} redirectTo={loginLink}>
+          <CalculatorPage />
+        </PrivateRoute>
+      </Switch>
+      {/* </Suspense> */}
+    </>
+  );
 
   // return <AddProductMobileForm />;
   // return <RegistrationPage />;

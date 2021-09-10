@@ -1,15 +1,15 @@
+/* eslint-disable import/no-anonymous-default-export */
 import { createAction } from '@reduxjs/toolkit';
 
-const productsAddSuccess = createAction('auth/RegistrationSuccess');
-const productsAddSuccessRequest = createAction('auth/RegistrationRequest');
-const productsAddSuccessError = createAction('auth/RegistrationError');
+const getProductsRequest = createAction('products/getProductsRequest');
+const getProductsSuccess = createAction('products/getProductsSuccess');
+const getProductsError = createAction('products/getProductsError');
 
-const productsFetchSuccess = createAction('auth/RegistrationSuccess');
-const productsFetchSuccessRequest = createAction('auth/RegistrationRequest');
-const productsFetchSuccessError = createAction('auth/RegistrationError');
+const dateValue = createAction('products/dateValue');
 
 export default {
-  productsFetchSuccess,
-  productsFetchSuccessRequest,
-  productsFetchSuccessError,
+  getProductsRequest,
+  getProductsSuccess,
+  getProductsError,
+  dateValue,
 };
