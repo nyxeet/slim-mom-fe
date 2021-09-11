@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { authOperations } from '../../redux/auth';
 //import { logOut } from '../../redux/auth/auth.operations';
 //import { getUserName, isAuthenticated } from '../../redux/auth/auth.selectors';
 
@@ -10,9 +11,7 @@ const Logout = () => {
   //useSelector(getUserName);
   const dispatch = useDispatch();
 
-  // const onLogOut = e => {
-  //   dispatch(logOut());
-  // };
+  const onLogOut = () => dispatch(authOperations.logout());
 
   return (
     <>
@@ -22,7 +21,7 @@ const Logout = () => {
           <button
             type="button"
             className={styles.exitButton}
-            // onClick={onLogOut}
+            onClick={onLogOut}
           >
             Выйти
           </button>
