@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '../Button';
 import classNames from 'classnames';
 import { authOperations } from '../../redux/auth';
-
+import dailyRateSelectors from '../../redux/dailyRate/dailyRateSelectors';
 import styles from './RegistrationForm.module.css';
 
 export default function RegistrationForm() {
@@ -33,6 +33,15 @@ export default function RegistrationForm() {
     }
   };
 
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+  console.log(userInfo);
+
+  const calories = useSelector(dailyRateSelectors.getCalories);
+  const products = useSelector(dailyRateSelectors.getProducts);
+
+  console.log(calories);
+  console.log(products);
+
   const onSubmitForm = event => {
     event.preventDefault();
 
@@ -41,7 +50,27 @@ export default function RegistrationForm() {
       return;
     }
 
-    dispatch(authOperations.registration({ name, login, password }));
+    if (userInfo) {
+      dispatch(
+        authOperations.registration({
+          name,
+          login,
+          password,
+          userData: {
+            height: userInfo.height,
+            age: userInfo.age,
+            currentWeight: userInfo.weight,
+            goalWeight: userInfo.newWeight,
+            bloodGroup: userInfo.bloodGroup,
+            dailyCalorieIntake: calories.toString(),
+            notAllowedProducts: products,
+          },
+        }),
+      );
+    } else {
+      dispatch(authOperations.registration({ name, login, password }));
+    }
+
     clearForm();
   };
 
