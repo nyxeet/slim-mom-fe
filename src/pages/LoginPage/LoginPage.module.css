@@ -3,13 +3,14 @@
 @value secondary-bg-color from '../../styles/variables.module.css';
 
 .LoginPage {
+  padding-top: 120px;
   height: 100vh;
   background-color: secondary-bg-color;
 }
 
 .Hero {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  /* padding-top: 40px;
+  padding-bottom: 40px; */
 }
 
 .Title {
@@ -27,6 +28,10 @@
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .LoginPage {
+    padding-top: 260px;
+  }
+
+  .LoginPage {
     background-image: url('../../images/pics/bg-main-tablet.png');
     background-size: contain;
     background-position: bottom right;
@@ -34,7 +39,7 @@
   }
 
   .Hero {
-    padding-top: 191px;
+    /* padding-top: 191px; */
   }
 
   .Title {
@@ -43,6 +48,10 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .LoginPage {
+    padding-top: 362px;
+  }
+
   .Title {
     margin-bottom: 71px;
 
@@ -57,6 +66,6 @@
   }
 
   .Hero {
-    padding-top: 213px;
+    /* padding-top: 213px; */
   }
 }

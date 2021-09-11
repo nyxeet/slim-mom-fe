@@ -3,7 +3,15 @@
 @value secondary-btn-color from '../../styles/variables.module.css';
 @value secondary-title-color from '../../styles/variables.module.css';
 
+a {
+  color: #fff;
+}
+
 @media screen and (max-width: 767px) {
+  .AddFormSection {
+    padding-top: 200px;
+  }
+
   .Form {
     display: flex;
     flex-direction: column;

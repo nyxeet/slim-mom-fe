@@ -9,8 +9,6 @@ export default function RegistrationPage() {
   return (
     <section className={styles.LoginPage}>
       <Container>
-        <div>Header</div>
-
         <main className={styles.Hero}>
           <h1 className={styles.Title}>Регистрация</h1>
           <RegistrationForm />
