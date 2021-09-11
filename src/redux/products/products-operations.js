@@ -5,18 +5,18 @@ import producstActions from './products-actions';
 
 // axios.defaults.baseURL = 'http://localhost:3000/api/days';
 
-const token = {
-  on() {
-    axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMzkwY2YzNjU5OWRjMWQ4MDc2MzA0MyIsImlhdCI6MTYzMTEyODgxOX0.GAV0OSo256OdCuMu1FKir7ckcwigTUOND2SIf-NV7sk`;
-  },
-  off() {
-    axios.defaults.headers.common.Authorization = '';
-  },
-};
+// const token = {
+//   on() {
+//     axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMzkwY2YzNjU5OWRjMWQ4MDc2MzA0MyIsImlhdCI6MTYzMTEyODgxOX0.GAV0OSo256OdCuMu1FKir7ckcwigTUOND2SIf-NV7sk`;
+//   },
+//   off() {
+//     axios.defaults.headers.common.Authorization = '';
+//   },
+// };
 
 const addProduct = newProduct => async dispatch => {
   //  ! пометь потом
-  token.on();
+  // token.on();
   dispatch(producstActions.getProductsRequest());
 
   try {
@@ -38,7 +38,7 @@ const addProduct = newProduct => async dispatch => {
 
 const removeProduct = removeProductInfo => async dispatch => {
   //  ! пометь потом
-  token.on();
+  // token.on();
   dispatch(producstActions.removeProductRequest());
 
   try {
@@ -60,7 +60,7 @@ const removeProduct = removeProductInfo => async dispatch => {
 
 const getDayProducts = date => async dispatch => {
   //  ! пометь потом
-  token.on();
+  // token.on();
   dispatch(producstActions.getDayProductsRequest());
 
   try {
