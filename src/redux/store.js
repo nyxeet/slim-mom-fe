@@ -2,12 +2,14 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import authReducer from './auth/auth-reducer';
 import userDataDiet from './dailyRate/dailyRateReducer';
+import userDataDietAuth from './dailyRate/dailyRatateAuthReducer';
 import productsReducer from './products/products-reducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
   dailyRate: userDataDiet,
   products: productsReducer,
+  userDiet: userDataDietAuth,
 });
 
 const store = configureStore({

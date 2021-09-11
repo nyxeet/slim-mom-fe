@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './DailyCalorieIntake.module.css';
 import dailyRateSelector from '../../redux/dailyRate/dailyRateSelectors';
+import { registrationLink } from '../../routes';
 
 const DailyCalorieIntake = () => {
    const calories = useSelector(dailyRateSelector.getCalories);
@@ -29,7 +30,7 @@ const DailyCalorieIntake = () => {
                   </li>
                ))} 
             </ol>
-            <Link to="/auth/register" className={styles.button}>
+         <Link to={registrationLink} className={styles.button}>
                Начать худеть
             </Link>
          </div>

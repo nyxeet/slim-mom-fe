@@ -40,6 +40,16 @@ export default function DailyCaloriesForm({ onSubmit }) {
   };
   const onSubmitForm = e => {
     e.preventDefault();
+    localStorage.setItem(
+      'userInfo',
+      JSON.stringify({
+        weight,
+        age,
+        height,
+        newWeight: desiredWeight,
+        bloodGroup: bloodType,
+      }),
+    );
     onSubmit({
       weight,
       age,
