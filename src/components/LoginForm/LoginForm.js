@@ -36,7 +36,7 @@ export default function LoginForm() {
       return;
     }
 
-    dispatch(authOperations.login({ email: login, password }));
+    dispatch(authOperations.login({ login, password }));
     clearForm();
   };
 
