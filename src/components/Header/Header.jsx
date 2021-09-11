@@ -9,6 +9,9 @@ import NavMenu from '../NavMenu';
 import useMedia from "use-media";
 import Logout from '../Logout';
 import { useHistory } from "react-router-dom";
+import {diaryLink, calculatorLink, loginLink, registrationLink } from '../../routes';
+import { NavLink } from 'react-router-dom';
+
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = React.useState(false)
@@ -16,7 +19,7 @@ const Header = () => {
   const history = useHistory()
   // const isLoggedIn = true;
   const isDesktop = useMedia({ minWidth: "1280px" });
-  let isLoggedIn = useSelector(state => state.auth.isLogin)
+  let isLoggedIn = useSelector(state => state.auth.token)
   const user = useSelector(state => state.auth.user)
   
   const handleOpenMenu = () => {
@@ -45,22 +48,18 @@ const Header = () => {
           </>)}
           {isLoggedIn && isDesktop && (
             <>
-            <div className={styles.tool}>Дневник</div>
-              <div className={styles.tool}>Калькулятор</div>
+            <NavLink to = {diaryLink} className={styles.tool} activeClassName={styles.active}>Дневник</NavLink>
+            <NavLink to = {calculatorLink} className={styles.tool} activeClassName={styles.active}>Калькулятор</NavLink>
               <Logout/>
           </>)
           }
           {!isLoggedIn && (<>
-            <div
-              onClick={() => history.push('/login')}
-              className={styles.tool}>
-              Вход
-            </div>
-            <div
-              onClick={() => history.push('/registration')}
-              className={styles.tool}>
+            <NavLink className={styles.tool} to = {loginLink} activeClassName={styles.active}>
+               Вход
+            </NavLink>   
+            <NavLink className={styles.tool} to = {registrationLink} activeClassName={styles.active}>
               Регистрация
-            </div>
+            </NavLink>
           </>)}
         </div>
       </div>
