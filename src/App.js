@@ -4,8 +4,8 @@ import RegistrationPage from './pages/RegistrationPage';
 import { Switch, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import CalculatorPage from './pages/CalculatorPage';
-import DiaryDateCalendar from './components/DiaryDateCalendar/DiaryDateCalendar';
 import Header from './components/Header';
+import DiaryPage from './pages/DiaryPage/DiaryPage';
 
 import {
   loginLink,
@@ -41,7 +41,7 @@ function App() {
         </PublicRoute>
 
         <PrivateRoute path={diaryLink} redirectTo={loginLink}>
-          <DiaryDateCalendar />
+          <DiaryPage />
         </PrivateRoute>
 
         <PrivateRoute path={calculatorLink} redirectTo={loginLink}>
@@ -51,13 +51,6 @@ function App() {
       {/* </Suspense> */}
     </>
   );
-
-  // return <RegistrationPage />;
-  // return <LoginPage />;
-  //return <CalculatorPage />;
-  // return <DiaryDateCalendar />;
-  // return <Header/>;
-  //return <MainPage />;
 }
 
 export default App;

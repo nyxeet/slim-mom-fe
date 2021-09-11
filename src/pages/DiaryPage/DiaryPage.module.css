@@ -1,0 +1,93 @@
+@value variables: './../../styles/variables.module.css';
+@value secondary-bg-color from variables;
+
+.mainContainer {
+  height: 100vh;
+}
+
+.containerLeft {
+  padding-top: 40px;
+  padding-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 0;
+  width: 100%;
+  max-width: 320px;
+}
+
+.right {
+  background: #f0f1f3;
+}
+
+.BtnWrapper {
+  display: block;
+  margin: 0 auto;
+  margin-top: 60px;
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+
+  background: #fc842d;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  transition: all 250ms ease-in;
+  cursor: pointer;
+}
+
+.BtnWrapper:hover {
+  transform: scale(1.05);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .containerLeft {
+    padding-top: 100px;
+    padding-bottom: 61px;
+    padding-left: 87px;
+    padding-right: 87px;
+
+    width: 100%;
+    max-width: 768px;
+  }
+  .right {
+    background-image: url('./../../images/pics/bg-calculator-tablet.png');
+    background-size: contain;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+  }
+
+  .BtnWrapper {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .right {
+    background-image: url('./../../images/pics/bg-calculator-desktop.png');
+    background-size: contain;
+    background-position: center right;
+    background-repeat: no-repeat;
+  }
+  .containerLeft {
+    padding-top: 137px;
+    padding-bottom: 40px;
+    width: 100%;
+    max-width: 605px;
+  }
+  .left {
+    flex-grow: 1;
+  }
+  .right {
+    width: 42%;
+  }
+
+  .BtnWrapper {
+    display: none;
+  }
+}

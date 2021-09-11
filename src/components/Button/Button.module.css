@@ -72,4 +72,8 @@
   .Active {
     margin-bottom: 0;
   }
+
+  .Hide {
+    display: none;
+  }
 }
