@@ -8,7 +8,6 @@ export default function LoginPage() {
   return (
     <section className={styles.LoginPage}>
       <Container>
-        <div>Header</div>
 
         <main className={styles.Hero}>
           <h1 className={styles.Title}>Вход</h1>

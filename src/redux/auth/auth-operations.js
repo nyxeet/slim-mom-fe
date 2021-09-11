@@ -3,15 +3,19 @@
 import axios from 'axios';
 import authActions from './auth-actions';
 
+const token = localStorage.getItem('token') || null
+if(token) axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 // todo
 axios.defaults.baseURL = '';
 
-const token = {
+const isToken = {
   on(key) {
     axios.defaults.headers.common.Authorization = `Bearer ${key}`;
+    localStorage.setItem('token', key)
   },
   off() {
     axios.defaults.headers.common.Authorization = '';
+    localStorage.removeItem('token')
   },
 };
 
@@ -20,13 +24,14 @@ const registration = userData => async dispatch => {
 
   try {
     const { data } = await axios.post('/api/user/signup', userData);
-    token.on(data.user.token);
+    isToken.on(data.user.token);
+    const {name, login, token} = data.user
     const registrationData = {
       user: {
-        ...data.user.name,
-        ...data.user.login,
+        name,
+        login,
       },
-      token: { ...data.user.token },
+      token,
     };
     dispatch(authActions.authRegistrationSuccess(registrationData));
   } catch (error) {
@@ -39,21 +44,28 @@ const login = userData => async dispatch => {
 
   try {
     const { data } = await axios.post('/api/user/login', userData);
-    token.on(data.token);
-    const loginData = {
-      user: {
-        ...data.name,
-        ...data.login,
-      },
-      token: { ...data.token },
-    };
-    dispatch(authActions.authLoginSuccess(loginData));
+    const { token } = data
+    isToken.on(token);
+    dispatch(authActions.authLoginSuccess(token));
   } catch (error) {
     dispatch(authActions.authLoginError(error.message));
+  }
+};
+
+const logout = () => async dispatch => {
+  dispatch(authActions.authLogoutRequest());
+
+  try {
+    await axios.post('/api/user/logout');
+    isToken.off();
+    dispatch(authActions.authLogoutSuccess());
+  } catch (error) {
+    dispatch(authActions.authLogoutError(error.message));
   }
 };
 
 export default {
   login,
   registration,
+  logout,
 };
