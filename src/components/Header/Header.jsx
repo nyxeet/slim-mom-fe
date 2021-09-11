@@ -18,7 +18,7 @@ const Header = () => {
   const isDesktop = useMedia({ minWidth: "1280px" });
   let isLoggedIn = useSelector(state => state.auth.isLogin)
   const user = useSelector(state => state.auth.user)
-  isLoggedIn = true
+  
   const handleOpenMenu = () => {
     setMenuOpen(prev => !prev)
   }

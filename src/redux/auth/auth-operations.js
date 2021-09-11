@@ -6,10 +6,11 @@ import authActions from './auth-actions';
 const token = localStorage.getItem('token') || null
 if(token) axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 // todo
-axios.defaults.baseURL = '';
+axios.defaults.baseURL = 'http://localhost:5000';
 
 const isToken = {
   on(key) {
+    console.log('KKKKKKKKKKKK', key);
     axios.defaults.headers.common.Authorization = `Bearer ${key}`;
     localStorage.setItem('token', key)
   },
@@ -24,8 +25,8 @@ const registration = userData => async dispatch => {
 
   try {
     const { data } = await axios.post('/api/user/signup', userData);
-    isToken.on(data.user.token);
-    const {name, login, token} = data.user
+    isToken.on(data.data.user.token);
+    const {name, login, token} = data.data.user
     const registrationData = {
       user: {
         name,
@@ -44,7 +45,8 @@ const login = userData => async dispatch => {
 
   try {
     const { data } = await axios.post('/api/user/login', userData);
-    const { token } = data
+    console.log(data);
+    const { token } = data.data
     isToken.on(token);
     dispatch(authActions.authLoginSuccess(token));
   } catch (error) {

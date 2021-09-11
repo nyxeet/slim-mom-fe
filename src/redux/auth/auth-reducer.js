@@ -10,7 +10,7 @@ const initialTokenState = localStorage.getItem('token') || null
 
 const userReducer = createReducer(initialState, {
   [authActions.authRegistrationSuccess]: (_, { payload }) => payload.user,
-  [authActions.authLoginSuccess]: (_, { payload }) => payload.user,
+  // [authActions.authLoginSuccess]: (_, { payload }) => payload.user,
   [authActions.authLogoutSuccess]: () => initialState,
   //   [authActions.authRefreshSuccess]: (_, { payload }) => payload,
 });
