@@ -1,28 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Route } from 'react-router-dom';
 import RightSideBar from '../../components/RightSideBar';
 import DiaryDateCalendar from '../../components/DiaryDateCalendar';
 import DiaryAddProductForm from '../../components/DiaryAddProductForm/DiaryAddProductForm';
 import DiaryAddProductList from '../../components/DiaryProductsList';
-import AddProductMobileForm from '../../components/AddProductMobileForm';
-import Header from '../../components/Header';
+
 import styles from './DiaryPage.module.css';
+import { addProductMobileForm } from '../../routes';
 
 const DiaryPage = () => {
   return (
     <>
       <div className={styles.mainContainer}>
         <div className={styles.left}>
-          <Header />
-
           <div className={styles.containerLeft}>
             <DiaryDateCalendar />
-            <DiaryAddProductForm />
+
+            <div className={styles.HiddenSection}>
+              <DiaryAddProductForm />
+            </div>
+
             <DiaryAddProductList />
 
             <button className={styles.BtnWrapper} type="submit">
-              <Link to="/add-product">
+              <Link to={addProductMobileForm}>
                 <svg
                   className={styles.BtnIcon}
                   width="14"
@@ -38,14 +39,13 @@ const DiaryPage = () => {
           </div>
         </div>
         <div className={styles.right}>
-          <div>Header2</div>
           <div className={styles.containerRight}>
             <RightSideBar />
           </div>
         </div>
       </div>
 
-      <Route path="/add-product" component={AddProductMobileForm} />
+      {/* <Route path="/diary/addProduct" component={AddProductMobileForm} /> */}
     </>
   );
 };

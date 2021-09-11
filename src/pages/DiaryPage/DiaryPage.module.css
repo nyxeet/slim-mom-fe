@@ -1,12 +1,16 @@
 @value variables: './../../styles/variables.module.css';
 @value secondary-bg-color from variables;
 
+.HiddenSection {
+  display: none;
+}
+
 .mainContainer {
   height: 100vh;
 }
 
 .containerLeft {
-  padding-top: 40px;
+  padding-top: 160px;
   padding-bottom: 60px;
   margin-left: auto;
   margin-right: auto;
@@ -41,8 +45,12 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
+  .HiddenSection {
+    display: block;
+  }
+
   .containerLeft {
-    padding-top: 100px;
+    padding-top: 180px;
     padding-bottom: 61px;
     padding-left: 87px;
     padding-right: 87px;
@@ -50,6 +58,7 @@
     width: 100%;
     max-width: 768px;
   }
+
   .right {
     background-image: url('./../../images/pics/bg-calculator-tablet.png');
     background-size: contain;
@@ -63,6 +72,10 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .HiddenSection {
+    display: block;
+  }
+
   .mainContainer {
     display: flex;
     flex-direction: row;
@@ -74,12 +87,17 @@
     background-position: center right;
     background-repeat: no-repeat;
   }
+
   .containerLeft {
-    padding-top: 137px;
-    padding-bottom: 40px;
+    padding-top: 292px;
     width: 100%;
     max-width: 605px;
   }
+
+  .containerRight {
+    padding-top: 155px;
+  }
+
   .left {
     flex-grow: 1;
   }

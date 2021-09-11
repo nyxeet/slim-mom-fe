@@ -90,7 +90,7 @@ export default function LoginForm() {
           type="button"
           active={false}
           link={true}
-          linkTo="/signup"
+          linkTo="/registration"
           registrationLink={true}
         >
           Регистрация

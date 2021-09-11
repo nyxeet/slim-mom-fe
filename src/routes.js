@@ -7,3 +7,5 @@ export const homeLink = '/';
 export const diaryLink = '/diary';
 
 export const calculatorLink = '/calculator';
+
+export const addProductMobileForm = '/addProduct';

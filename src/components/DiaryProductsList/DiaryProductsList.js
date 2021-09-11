@@ -31,7 +31,7 @@ export default function DiaryProductsList() {
               <li className={styles.ListItem} key={id}>
                 <p className={classNames(styles.Text, styles.Name)}>{ru}</p>
                 <p className={classNames(styles.Text, styles.Weight)}>
-                  {weight} грамм
+                  {weight} г
                 </p>
                 <p className={classNames(styles.Text, styles.Ccal)}>
                   {ccal} ккал

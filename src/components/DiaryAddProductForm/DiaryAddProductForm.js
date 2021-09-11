@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Button from '../Button';
 import productsSelectors from '../../redux/products/products-selectors';
 import productsOperations from '../../redux/products/products-operations';
+import { diaryLink } from '../../routes';
 
 import styles from './DiaryAddProductForm.module.css';
 
@@ -82,76 +83,82 @@ export default function DiaryAddProductForm() {
     setIsVisible(true);
   };
 
-  // todo styles
-
   return (
-    <form onSubmit={onSubmitForm} className={styles.Form} id="form">
-      <div className={classNames(styles.productWrapper)}>
-        <input
-          className={classNames(styles.Input)}
-          type="text"
-          name="productName"
-          value={productName}
-          onChange={onChangeProductInput}
-          autoComplete="off"
-          placeholder=" "
-          id="productName"
-        ></input>
+    <section className={styles.AddFormSection}>
+      <form onSubmit={onSubmitForm} className={styles.Form} id="form">
+        <div className={classNames(styles.productWrapper)}>
+          <input
+            className={classNames(styles.Input)}
+            type="text"
+            name="productName"
+            value={productName}
+            onChange={onChangeProductInput}
+            autoComplete="off"
+            placeholder=" "
+            id="productName"
+          ></input>
 
-        <label className={styles.Label} htmlFor="productName">
-          Введите название продукта
-        </label>
+          <label className={styles.Label} htmlFor="productName">
+            Введите название продукта
+          </label>
 
-        {productList.length > 0 && isVisible && (
-          <div className={styles.FindBox}>
-            <ul className={styles.Findlist} role="menu">
-              {productList.map(({ _id, title }) => (
-                <li
-                  onClick={onProductClick}
-                  title={title.ru}
-                  key={_id}
-                  id={_id}
-                  className={styles.Findlist__item}
-                >
-                  {title.ru}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
-      <div className={classNames(styles.weightWrapper)}>
-        <input
-          className={classNames(styles.Input)}
-          type="number"
-          name="productWeight"
-          value={productWeight}
-          onChange={onChangeWeight}
-          autoComplete="off"
-          placeholder=" "
-          id="productWeight"
-        ></input>
-        <label className={styles.Label} htmlFor="productWeight">
-          Граммы
-        </label>
-      </div>
+          {productList.length > 0 && isVisible && (
+            <div className={styles.FindBox}>
+              <ul className={styles.Findlist} role="menu">
+                {productList.map(({ _id, title }) => (
+                  <li
+                    onClick={onProductClick}
+                    title={title.ru}
+                    key={_id}
+                    id={_id}
+                    className={styles.Findlist__item}
+                  >
+                    {title.ru}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+        <div className={classNames(styles.weightWrapper)}>
+          <input
+            className={classNames(styles.Input)}
+            type="number"
+            name="productWeight"
+            value={productWeight}
+            onChange={onChangeWeight}
+            autoComplete="off"
+            placeholder=" "
+            id="productWeight"
+          ></input>
+          <label className={styles.Label} htmlFor="productWeight">
+            Граммы
+          </label>
+        </div>
 
-      <button className={classNames(styles.BtnWrapper)} type="submit">
-        <svg
-          className={styles.BtnIcon}
-          width="14"
-          height="14"
-          viewBox="0 0 14 14"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+        <button className={classNames(styles.BtnWrapper)} type="submit">
+          <svg
+            className={styles.BtnIcon}
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M14 8H8V14H6V8H0V6H6V0H8V6H14V8Z" fill="white" />
+          </svg>
+        </button>
+
+        <Button
+          type="submit"
+          active={true}
+          hide={true}
+          link={true}
+          linkTo={diaryLink}
         >
-          <path d="M14 8H8V14H6V8H0V6H6V0H8V6H14V8Z" fill="white" />
-        </svg>
-      </button>
-
-      <Button type="submit" active={true} hide={true}>
-        Добавить
-      </Button>
-    </form>
+          Добавить
+        </Button>
+      </form>
+    </section>
   );
 }
