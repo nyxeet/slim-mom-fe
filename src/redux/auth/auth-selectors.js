@@ -1,4 +1,4 @@
-const getIsLogin = state => state.auth.isLogin;
+const getIsLogin = state => state.auth.token;
 
 const authSelectors = { getIsLogin };
 
