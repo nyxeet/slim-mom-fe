@@ -15,6 +15,7 @@ const DiaryPage = () => {
       <div className={styles.mainContainer}>
         <div className={styles.left}>
           <Header />
+
           <div className={styles.containerLeft}>
             <DiaryDateCalendar />
             <DiaryAddProductForm />

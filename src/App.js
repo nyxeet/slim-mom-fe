@@ -4,10 +4,8 @@ import RegistrationPage from './pages/RegistrationPage';
 import { Switch, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import CalculatorPage from './pages/CalculatorPage';
-import DiaryDateCalendar from './components/DiaryDateCalendar/DiaryDateCalendar';
 import Header from './components/Header';
-import DiaryPage from './pages/DiaryPage';
-import AddProductMobileForm from './components/AddProductMobileForm';
+import DiaryPage from './pages/DiaryPage/DiaryPage';
 
 import {
   loginLink,
@@ -19,49 +17,40 @@ import {
 import { PublicRoute, PrivateRoute } from './components/CustomRoutes';
 
 function App() {
-  // return (
-  //   <>
-  //     <Header />
-  //     {/* // todo: Добавить Suspense,лоадер и ленивую загрузку по желанию или удалить закоментрованную часть*/}
-  //     {/* <Suspense fallback={<h1>Loading..</h1>}> */}
-  //     <Switch>
-  //       <PublicRoute
-  //         exact
-  //         path={homeLink}
-  //         restricted
-  //         redirectTo={calculatorLink}
-  //       >
-  //         <MainPage />
-  //       </PublicRoute>
+  return (
+    <>
+      <Header />
+      {/* // todo: Добавить Suspense,лоадер и ленивую загрузку по желанию или удалить закоментрованную часть*/}
+      {/* <Suspense fallback={<h1>Loading..</h1>}> */}
+      <Switch>
+        <PublicRoute
+          exact
+          path={homeLink}
+          restricted
+          redirectTo={calculatorLink}
+        >
+          <MainPage />
+        </PublicRoute>
 
-  //       <PublicRoute path={registrationLink} restricted redirectTo={diaryLink}>
-  //         <RegistrationPage />
-  //       </PublicRoute>
+        <PublicRoute path={registrationLink} restricted redirectTo={diaryLink}>
+          <RegistrationPage />
+        </PublicRoute>
 
-  //       <PublicRoute path={loginLink} restricted redirectTo={diaryLink}>
-  //         <LoginPage />
-  //       </PublicRoute>
+        <PublicRoute path={loginLink} restricted redirectTo={diaryLink}>
+          <LoginPage />
+        </PublicRoute>
 
-  //       <PrivateRoute path={diaryLink} redirectTo={loginLink}>
-  //         <DiaryDateCalendar />
-  //       </PrivateRoute>
+        <PrivateRoute path={diaryLink} redirectTo={loginLink}>
+          <DiaryPage />
+        </PrivateRoute>
 
-  //       <PrivateRoute path={calculatorLink} redirectTo={loginLink}>
-  //         <CalculatorPage />
-  //       </PrivateRoute>
-  //     </Switch>
-  //     {/* </Suspense> */}
-  //   </>
-  // );
-
-  // return <AddProductMobileForm />;
-  // return <RegistrationPage />;
-  // return <LoginPage />;
-  //return <CalculatorPage />;
-  // return <DiaryDateCalendar />;
-  // return <Header/>;
-  //return <MainPage />;
-  return <DiaryPage />;
+        <PrivateRoute path={calculatorLink} redirectTo={loginLink}>
+          <CalculatorPage />
+        </PrivateRoute>
+      </Switch>
+      {/* </Suspense> */}
+    </>
+  );
 }
 
 export default App;
