@@ -38,8 +38,11 @@ export default function RegistrationForm() {
 
   const calories = useSelector(dailyRateSelectors.getCalories);
   const products = useSelector(dailyRateSelectors.getProducts);
+  const filteredProducts = products
+    .map(product => product.categories[0])
+    .filter((item, index, arr) => arr.indexOf(item) === index);
 
-  console.log(calories);
+  console.log(filteredProducts);
   console.log(products);
 
   const onSubmitForm = event => {
@@ -63,7 +66,7 @@ export default function RegistrationForm() {
             goalWeight: userInfo.newWeight,
             bloodGroup: userInfo.bloodGroup,
             dailyCalorieIntake: calories.toString(),
-            notAllowedProducts: products,
+            notAllowedProducts: filteredProducts,
           },
         }),
       );
