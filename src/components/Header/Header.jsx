@@ -8,15 +8,17 @@ import closeIcon from '../../images/icons/Header/closeIcon.svg'
 import NavMenu from '../NavMenu';
 import useMedia from "use-media";
 import Logout from '../Logout';
+import { useHistory } from "react-router-dom";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = React.useState(false)
   const dispatch = useDispatch()
-  const isLoggedIn = true;
+  const history = useHistory()
+  // const isLoggedIn = true;
   const isDesktop = useMedia({ minWidth: "1280px" });
-    //useSelector(state => state.auth.isLogin)
+  let isLoggedIn = useSelector(state => state.auth.isLogin)
   const user = useSelector(state => state.auth.user)
-
+  
   const handleOpenMenu = () => {
     setMenuOpen(prev => !prev)
   }
@@ -49,8 +51,16 @@ const Header = () => {
           </>)
           }
           {!isLoggedIn && (<>
-            <div className={styles.tool}>Вход</div>
-            <div className={styles.tool}>Регистрация</div>
+            <div
+              onClick={() => history.push('/login')}
+              className={styles.tool}>
+              Вход
+            </div>
+            <div
+              onClick={() => history.push('/registration')}
+              className={styles.tool}>
+              Регистрация
+            </div>
           </>)}
         </div>
       </div>
