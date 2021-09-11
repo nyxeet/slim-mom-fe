@@ -9,8 +9,8 @@ import NavMenu from '../NavMenu';
 import useMedia from "use-media";
 import Logout from '../Logout';
 import { useHistory } from "react-router-dom";
-import {diaryLink, calculatorLink, loginLink, registrationLink } from '../../routes';
-import { NavLink } from 'react-router-dom';
+import {diaryLink, calculatorLink, loginLink, registrationLink, homeLink } from '../../routes';
+import { NavLink, Link } from 'react-router-dom';
 
 
 const Header = () => {
@@ -29,10 +29,10 @@ const Header = () => {
   return (<>
     <header className={styles.headerContainer}>
       <div className={styles.headerContentContainer}>
-        <img className={styles.headerImage} src={fitnessIcon} alt="" />
-        <div className={styles.headerText + ` ${isLoggedIn ? styles.withTitle : ""}`}>
+        <Link to={homeLink}><img className={styles.headerImage} src={fitnessIcon} alt="" /></Link>
+        <Link to={homeLink}><div className={styles.headerText + ` ${isLoggedIn ? styles.withTitle : ""}`}>
           Slim<span>Mom</span>
-        </div>
+        </div></Link>
         <div className={styles.toolsContainer}>
           {isLoggedIn && !isDesktop && (<>
             <Logout/>
