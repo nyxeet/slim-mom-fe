@@ -14,20 +14,14 @@ const Logout = () => {
   const onLogOut = () => dispatch(authOperations.logout());
 
   return (
-    <>
-      <div className={styles.logout}>
-        <div className={styles.container}>
-          <span className={styles.userLogin}> {userName || 'Nickname'} </span>
-          <button
-            type="button"
-            className={styles.exitButton}
-            onClick={onLogOut}
-          >
-            Выйти
-          </button>
-        </div>
+    <div className={styles.logout}>
+      <div className={styles.container}>
+        <span className={styles.userLogin}> {userName || 'Nickname'} </span>
+        <button type="button" className={styles.exitButton} onClick={onLogOut}>
+          Выйти
+        </button>
       </div>
-    </>
+    </div>
   );
 };
 
