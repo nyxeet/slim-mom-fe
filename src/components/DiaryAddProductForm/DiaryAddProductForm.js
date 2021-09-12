@@ -44,6 +44,8 @@ export default function DiaryAddProductForm() {
     container: (provided, state) => ({
       ...provided,
       paddingLeft: 0,
+      fontWeight: 700,
+      fontSize: 14,
     }),
     control: () => ({
       width: '100%',
@@ -105,6 +107,8 @@ export default function DiaryAddProductForm() {
     <section className={styles.AddFormSection}>
       <form onSubmit={onSubmitForm} className={styles.Form} id="form">
         <AsyncSelect
+          noOptionsMessage={() => 'Не нашли продуктов'}
+          loadingMessage={() => 'Загружается...'}
           placeholder={'Введите имя продукта'}
           styles={customStyles}
           isClearable
