@@ -1,0 +1,71 @@
+@value secondary-title-color from '../../styles/variables.module.css';
+@value secondary-font from '../../styles/variables.module.css';
+@value secondary-bg-color from '../../styles/variables.module.css';
+
+.LoginPage {
+  padding-top: 120px;
+  height: 100vh;
+  background-color: secondary-bg-color;
+}
+
+.Hero {
+  /* padding-top: 40px;
+  padding-bottom: 40px; */
+}
+
+.Title {
+  margin-bottom: 60px;
+
+  text-align: center;
+  font-family: secondary-font;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: secondary-title-color;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .LoginPage {
+    padding-top: 230px;
+  }
+
+  .LoginPage {
+    background-image: url('../../images/pics/bg-main-tablet.png');
+    background-size: contain;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+  }
+
+  .Hero {
+    /* padding-top: 157px; */
+  }
+
+  .Title {
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .LoginPage {
+    padding-top: 244px;
+  }
+
+  .Title {
+    margin-bottom: 71px;
+
+    text-align: left;
+  }
+
+  .LoginPage {
+    background-image: url('../../images/pics/bg-main-desktop.png');
+    background-size: contain;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+  }
+
+  .Hero {
+    /* padding-top: 95px; */
+  }
+}
