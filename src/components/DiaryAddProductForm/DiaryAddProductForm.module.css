@@ -217,7 +217,7 @@ a {
   .Form {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: end;
 
     width: 100%;
     max-width: 552px;
@@ -281,7 +281,7 @@ a {
 
   .weightWrapper {
     position: relative;
-
+    margin-left: 10px;
     width: 100%;
     max-width: 105px;
     margin-right: 75px;
