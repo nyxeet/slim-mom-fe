@@ -45,14 +45,14 @@ const RightSideBar = () => {
               {dailyNorm ? dailyNorm : '000'} ккал
             </li>
             <li className={styles.RightSideBarItem}>
-              {percent ? percent : '0'} %
+              {isNaN(percent) ? '0' : percent} %
             </li>
           </ul>
         </div>
       </div>
       <div className={styles.RightSideBarSummary}>
         <h2 className={styles.RightSideBarHeader}>Нерекомендуемые продукты</h2>
-        {products ? (
+        {products.length > 0 ? (
           <p className={styles.ProductsList}>{products.join(', ')}</p>
         ) : (
           <p className={styles.RightSideBarItem}>
