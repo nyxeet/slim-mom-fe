@@ -8,7 +8,7 @@ const onFetchCurrentUser = () => dispatch => {
     .get(`/api/user/getCurrentUser`)
     .then(receivedData => {
       dispatch(
-        userInfoActions.fetchUserInfoSuccess(receivedData.data.data.userData),
+        userInfoActions.fetchUserInfoSuccess(receivedData.data.data)
       );
     })
     .catch(error => {
