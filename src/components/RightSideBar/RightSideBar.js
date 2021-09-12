@@ -52,7 +52,7 @@ const RightSideBar = () => {
       </div>
       <div className={styles.RightSideBarSummary}>
         <h2 className={styles.RightSideBarHeader}>Нерекомендуемые продукты</h2>
-        {products.length > 0 ? (
+        {products && products.length > 0 ? (
           <p className={styles.ProductsList}>{products.join(', ')}</p>
         ) : (
           <p className={styles.RightSideBarItem}>
