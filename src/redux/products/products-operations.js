@@ -3,8 +3,6 @@
 import axios from 'axios';
 import producstActions from './products-actions';
 
-const BASE_URL = 'http://localhost:3001/api/days';
-
 const addProduct = newProduct => async dispatch => {
   dispatch(producstActions.getProductsRequest());
 
@@ -15,7 +13,7 @@ const addProduct = newProduct => async dispatch => {
           day: { productList },
         },
       },
-    } = await axios.post(`${BASE_URL}/addProduct`, newProduct);
+    } = await axios.post(`/api/days/addProduct`, newProduct);
     dispatch(producstActions.getProductsSuccess(productList));
   } catch (error) {
     dispatch(producstActions.getProductsError(error.message));
@@ -32,7 +30,7 @@ const removeProduct = removeProductInfo => async dispatch => {
           day: { productList },
         },
       },
-    } = await axios.post(`${BASE_URL}/removeProduct`, removeProductInfo);
+    } = await axios.post(`api/days/removeProduct`, removeProductInfo);
     dispatch(producstActions.removeProductSuccess(productList));
   } catch (error) {
     dispatch(producstActions.removeProductError(error.message));
@@ -45,7 +43,7 @@ const getDayProducts = date => async dispatch => {
   try {
     const {
       data: { data },
-    } = await axios.post(`${BASE_URL}/get`, date);
+    } = await axios.post(`/api/days/get`, date);
     const needData = data.day ? data.day.productList : [];
     dispatch(producstActions.getDayProductsSuccess(needData));
   } catch (error) {
@@ -54,9 +52,7 @@ const getDayProducts = date => async dispatch => {
 };
 
 const getAllProducts = async product => {
-  const response = await axios.get(
-    `http://localhost:3001/api/product/?productName=${product}`,
-  );
+  const response = await axios.get(`/api/product/?productName=${product}`);
   return response.data.data.result;
 };
 

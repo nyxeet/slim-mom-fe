@@ -6,7 +6,7 @@ import authActions from './auth-actions';
 const token = localStorage.getItem('token') || null;
 if (token) axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 // todo
-axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.baseURL = 'https://radiant-headland-01659.herokuapp.com';
 
 const isToken = {
   on(key) {

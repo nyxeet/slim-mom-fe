@@ -11,7 +11,12 @@ const RightSideBar = () => {
   useEffect(() => dispatch(userOperations.onFetchCurrentUser()), []);
 
   const userData = useSelector(userSelectors.getUserData);
-  const products = userData.notAllowedProducts;
+  let products = userData.notAllowedProducts;
+  if (products && products.every(item => typeof item !== 'string')) {
+    products = products
+      .map(product => product.categories[0])
+      .filter((item, index, arr) => arr.indexOf(item) === index);
+  }
   const dailyNorm = userData.dailyCalorieIntake;
   let date = useSelector(productsSelectors.getDate);
   if (date) {
