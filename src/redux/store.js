@@ -4,12 +4,14 @@ import authReducer from './auth/auth-reducer';
 import userDataDiet from './dailyRate/dailyRateReducer';
 import userDataDietAuth from './dailyRate/dailyRatateAuthReducer';
 import productsReducer from './products/products-reducer';
+import userInfo from './user-info/userInfoReducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
   dailyRate: userDataDiet,
   products: productsReducer,
   userDiet: userDataDietAuth,
+  userData: userInfo,
 });
 
 const store = configureStore({
