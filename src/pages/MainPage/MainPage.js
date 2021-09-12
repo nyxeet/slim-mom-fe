@@ -5,12 +5,16 @@ import DailyCaloriesForm from '../../components/DailyCaloriesForm';
 import Modal from './../../components/Modal';
 import DailyCalorieIntake from './../../components/DailyCalorieIntake';
 import dailyOperetions from './../../redux/dailyRate/dailyRateOperations';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import Loader from '../../components/Loader';
+import getLoader from './../../redux/loader/loader-selectors';
 
 const MainPage = () => {
   const dispatch = useDispatch();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   console.log(modalIsOpen);
+
+  const loader = useSelector(getLoader);
 
   const toggleModal = () => {
     setModalIsOpen(!modalIsOpen);
@@ -31,6 +35,7 @@ const MainPage = () => {
           <DailyCalorieIntake />
         </Modal>
       )}
+      {loader && <Loader />}
     </div>
   );
 };
