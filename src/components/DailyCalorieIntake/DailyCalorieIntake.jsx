@@ -3,15 +3,18 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './DailyCalorieIntake.module.css';
 import dailyRateSelector from '../../redux/dailyRate/dailyRateSelectors';
+import Loader from '../../components/Loader';
+import getLoader from './../../redux/loader/loader-selectors';
 
 const DailyCalorieIntake = () => {
+   const loader = useSelector(getLoader);
    const calories = useSelector(dailyRateSelector.getCalories);
    const products = useSelector(dailyRateSelector.getProducts);
    const filteredProducts = products.map(product => product.categories[0]).filter((item, index, arr) => arr.indexOf(item) === index)
    console.log(filteredProducts);
    return (
       <div className={styles.wrapper}>
-         <p className={styles.title}>
+          {loader ? <Loader/> : <><p className={styles.title}>
             Ваша рекомендуемая суточная норма калорий составляет
          </p>
          <div className={styles.container}>
@@ -32,7 +35,7 @@ const DailyCalorieIntake = () => {
             <Link to="/auth/register" className={styles.button}>
                Начать худеть
             </Link>
-         </div>
+         </div></>}
       </div>
    );
 };
