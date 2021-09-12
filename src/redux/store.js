@@ -2,10 +2,12 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import authReducer from './auth/auth-reducer';
 import userDataDiet from './dailyRate/dailyRateReducer';
+import loaderReducer from './loader/loader-reducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
   dailyRate: userDataDiet,
+  loader: loaderReducer,
 });
 
 const store = configureStore({
