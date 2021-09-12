@@ -24,7 +24,7 @@ a {
   .productWrapper,
   .weightWrapper {
     position: relative;
-
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,7 +101,7 @@ a {
   .Form {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: end;
 
     width: 100%;
     max-width: 475px;
@@ -165,7 +165,7 @@ a {
 
   .weightWrapper {
     position: relative;
-
+    margin-left: 10px;
     width: 100%;
     max-width: 105px;
     margin-right: 48px;
