@@ -49,12 +49,15 @@
 }
 .tool:not(:last-child) {
   margin-right: 15px;
+  /* color: #212121; */
+}
+
+.active {
   color: #212121;
 }
 
 .tool:hover,
 .tool:focus {
-  text-decoration: underline;
   cursor: pointer;
   opacity: 1;
 }

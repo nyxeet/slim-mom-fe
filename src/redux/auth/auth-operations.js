@@ -6,7 +6,7 @@ import authActions from './auth-actions';
 const token = localStorage.getItem('token') || null;
 if (token) axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 // todo
-axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = 'http://localhost:3001';
 
 const isToken = {
   on(key) {

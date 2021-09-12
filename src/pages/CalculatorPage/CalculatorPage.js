@@ -3,13 +3,20 @@ import styles from './CalculatorPage.module.css';
 import CalculatorCalorieForm from '../../components/CalculatorCalorieForm';
 import Container from '../../components/Container';
 import RightSideBar from '../../components/RightSideBar';
+import dailyOperetions from './../../redux/dailyRate/dailyRateOperations';
+import { useDispatch } from 'react-redux';
 
 const CalculatorPage = () => {
+  const dispatch = useDispatch();
+  const onSubmit = values => {
+    dispatch(dailyOperetions.onFetchDailyRatesAuth(values));
+  };
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.left}>
         <div className={styles.containerLeft}>
-          <CalculatorCalorieForm />
+          <CalculatorCalorieForm onSubmit={onSubmit} />
         </div>
       </div>
       <div className={styles.right}>

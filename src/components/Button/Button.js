@@ -14,6 +14,7 @@ export default function Button({
   loginLink,
   children,
   registrationLink,
+  hide,
 }) {
   return (
     <button
@@ -24,6 +25,7 @@ export default function Button({
         active && styles.Active,
         !active && styles.NotActive,
         mr && styles.BtnPosition,
+        hide && styles.Hide,
       )}
     >
       {link ? (
@@ -51,6 +53,7 @@ Button.defaultProps = {
   register: false,
   loginLink: false,
   registrationLink: false,
+  hide: false,
 };
 
 Button.propTypes = {

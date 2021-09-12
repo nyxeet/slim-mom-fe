@@ -5,6 +5,7 @@ import styles from './DailyCalorieIntake.module.css';
 import dailyRateSelector from '../../redux/dailyRate/dailyRateSelectors';
 import Loader from '../../components/Loader';
 import getLoader from './../../redux/loader/loader-selectors';
+import { registrationLink } from '../../routes';
 
 const DailyCalorieIntake = () => {
    const loader = useSelector(getLoader);
@@ -32,7 +33,7 @@ const DailyCalorieIntake = () => {
                   </li>
                ))} 
             </ol>
-            <Link to="/auth/register" className={styles.button}>
+         <Link to={registrationLink} className={styles.button}>
                Начать худеть
             </Link>
          </div></>}

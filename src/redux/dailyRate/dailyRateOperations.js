@@ -17,34 +17,23 @@ const onFetchDailyRates = values => dispatch => {
     });
 };
 
-const onFetchDailyRatesAuthorised =
-  (values, userId) => (dispatch, getState) => {
-    const {
-      auth: { sid: sidValue },
-    } = getState();
+const onFetchDailyRatesAuth = values => dispatch => {
+  dispatch(dailyRateActions.fetchDailyRateRequestAuth());
 
-    dispatch(dailyRateActions.fetchDailyRateRequestAuth());
-
-    axios
-      .post(`/daily-rate/${userId}`, values)
-      .then(receivedData => {
-        dispatch(dailyRateActions.fetchDailyRateSuccess(receivedData.data));
-      })
-      .catch(error => {
-        dispatch(
-          authOperations.refreshUser(
-            { sid: sidValue },
-            'DailyRates',
-            values,
-            userId,
-          ),
-        );
-        dispatch(dailyRateActions.fetchDailyRateErrorAuth(error));
-      });
-  };
+  axios
+    .post(`${BASE_URL}/user/setUserCalories`, values)
+    .then(receivedData => {
+      dispatch(
+        dailyRateActions.fetchDailyRateSuccessAuth(receivedData.data.data),
+      );
+    })
+    .catch(error => {
+      dispatch(dailyRateActions.fetchDailyRateErrorAuth(error));
+    });
+};
 
 // eslint-disable-next-line
 export default {
   onFetchDailyRates,
-  onFetchDailyRatesAuthorised,
+  onFetchDailyRatesAuth,
 };
