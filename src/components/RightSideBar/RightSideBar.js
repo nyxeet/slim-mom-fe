@@ -25,7 +25,10 @@ const RightSideBar = () => {
   const consumedCalories = useSelector(
     productsSelectors.getTotalDailyCcal,
   ).toFixed(2);
-  const left = (dailyNorm - consumedCalories).toFixed(2);
+  const left =
+    dailyNorm - consumedCalories > 0
+      ? (dailyNorm - consumedCalories).toFixed(2)
+      : 0;
   const percent = ((consumedCalories / dailyNorm) * 100).toFixed(2);
 
   return (
