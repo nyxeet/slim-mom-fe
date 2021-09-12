@@ -13,9 +13,14 @@ const RightSideBar = () => {
   const userData = useSelector(userSelectors.getUserData);
   const products = userData.notAllowedProducts;
   const dailyNorm = userData.dailyCalorieIntake;
-  const date = useSelector(productsSelectors.getDate).split('-');
-  const consumedCalories = useSelector(productsSelectors.getTotalDailyCcal);
-  const left = dailyNorm - consumedCalories;
+  let date = useSelector(productsSelectors.getDate);
+  if (date) {
+    date = date.split('-');
+  }
+  const consumedCalories = useSelector(
+    productsSelectors.getTotalDailyCcal,
+  ).toFixed(2);
+  const left = (dailyNorm - consumedCalories).toFixed(2);
   const percent = ((consumedCalories / dailyNorm) * 100).toFixed(2);
 
   return (
