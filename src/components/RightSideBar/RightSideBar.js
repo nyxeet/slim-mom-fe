@@ -30,7 +30,6 @@ const RightSideBar = () => {
       ? (dailyNorm - consumedCalories).toFixed(2)
       : 0;
   const percent = ((consumedCalories / dailyNorm) * 100).toFixed(2);
-
   return (
     <div className={styles.RightSideBarContainer}>
       <div className={styles.RightSideBarSummary}>
@@ -58,7 +57,7 @@ const RightSideBar = () => {
               {dailyNorm ? dailyNorm : '000'} ккал
             </li>
             <li className={styles.RightSideBarItem}>
-              {isNaN(percent) ? '0' : percent} %
+              {isNaN(percent) || percent === 'Infinity' ? '0' : percent} %
             </li>
           </ul>
         </div>
