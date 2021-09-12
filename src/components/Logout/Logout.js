@@ -6,8 +6,7 @@ import { authOperations } from '../../redux/auth';
 
 import styles from './Logout.module.css';
 
-const Logout = () => {
-  const name = 'Nic';
+const Logout = ({user}) => {
   //useSelector(getUserName);
   const dispatch = useDispatch();
 
@@ -17,7 +16,7 @@ const Logout = () => {
     <>
       <div className={styles.logout}>
         <div className={styles.container}>
-          <span className={styles.userLogin}> {name} </span>
+          <span className={styles.userLogin}> {user?.name || 'Nickname'} </span>
           <button
             type="button"
             className={styles.exitButton}

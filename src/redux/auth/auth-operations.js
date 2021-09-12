@@ -10,7 +10,6 @@ axios.defaults.baseURL = 'http://localhost:3001';
 
 const isToken = {
   on(key) {
-    console.log('KKKKKKKKKKKK', key);
     axios.defaults.headers.common.Authorization = `Bearer ${key}`;
     localStorage.setItem('token', key);
   },
