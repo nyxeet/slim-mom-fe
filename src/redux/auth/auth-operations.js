@@ -10,7 +10,6 @@ axios.defaults.baseURL = 'https://radiant-headland-01659.herokuapp.com';
 
 const isToken = {
   on(key) {
-    console.log('KKKKKKKKKKKK', key);
     axios.defaults.headers.common.Authorization = `Bearer ${key}`;
     localStorage.setItem('token', key);
   },
