@@ -5,6 +5,7 @@ import Button from '../Button';
 import productsSelectors from '../../redux/products/products-selectors';
 import productsOperations from '../../redux/products/products-operations';
 import { diaryLink } from '../../routes';
+import AsyncSelect from 'react-select/async';
 
 import styles from './DiaryAddProductForm.module.css';
 
@@ -12,8 +13,6 @@ export default function DiaryAddProductForm() {
   const [productName, setProductName] = useState('');
   const [productId, setProductId] = useState('');
   const [productWeight, setProductWeight] = useState('');
-  const [productList, setProductList] = useState([]);
-  const [isVisible, setIsVisible] = useState(true);
   const date = useSelector(productsSelectors.getDate);
   const dispatch = useDispatch();
 
@@ -21,21 +20,42 @@ export default function DiaryAddProductForm() {
     setProductWeight(target.value);
   };
 
-  const onChangeProductInput = async ({ target: { value } }) => {
+  const handleInputChange = value => {
+    setProductId(value ? value.id : value);
     setProductName(value);
-    setIsVisible(true);
-    const normalizedQuerry = value.replace(/[\])}[{(]/g, '');
-    await productsOperations
-      .getAllProducts(normalizedQuerry)
-      .then(setProductList);
   };
 
-  const onProductClick = event => {
-    const { id, title } = event.target;
+  const promiseOptions = inputValue => {
+    const normalizedQuerry = inputValue.replace(/[\])}[{(]/g, '');
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(
+          productsOperations.getAllProducts(normalizedQuerry).then(data =>
+            data.map(item => {
+              return { label: item.title.ru, id: item._id };
+            }),
+          ),
+        );
+      }, 1000);
+    });
+  };
 
-    setProductId(id);
-    setProductName(title);
-    setIsVisible(false);
+  const customStyles = {
+    container: (provided, state) => ({
+      ...provided,
+      paddingLeft: 0,
+    }),
+    control: () => ({
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'space-between',
+    }),
+    singleValue: (provided, state) => {
+      const opacity = state.isDisabled ? 0.5 : 1;
+      const transition = 'opacity 300ms';
+
+      return { ...provided, opacity, transition };
+    },
   };
 
   const onSubmitForm = async event => {
@@ -79,47 +99,22 @@ export default function DiaryAddProductForm() {
   const clearForm = () => {
     setProductName('');
     setProductWeight('');
-    setProductList([]);
-    setIsVisible(true);
   };
 
   return (
     <section className={styles.AddFormSection}>
       <form onSubmit={onSubmitForm} className={styles.Form} id="form">
-        <div className={classNames(styles.productWrapper)}>
-          <input
-            className={classNames(styles.Input)}
-            type="text"
-            name="productName"
-            value={productName}
-            onChange={onChangeProductInput}
-            autoComplete="off"
-            placeholder=" "
-            id="productName"
-          ></input>
-
-          <label className={styles.Label} htmlFor="productName">
-            Введите название продукта
-          </label>
-
-          {productList.length > 0 && isVisible && (
-            <div className={styles.FindBox}>
-              <ul className={styles.Findlist} role="menu">
-                {productList.map(({ _id, title }) => (
-                  <li
-                    onClick={onProductClick}
-                    title={title.ru}
-                    key={_id}
-                    id={_id}
-                    className={styles.Findlist__item}
-                  >
-                    {title.ru}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
+        <AsyncSelect
+          placeholder={'Введите имя продукта'}
+          styles={customStyles}
+          isClearable
+          className={classNames(styles.Input)}
+          cacheOptions
+          loadOptions={promiseOptions}
+          defaultOptions
+          onChange={handleInputChange}
+          value={productName}
+        />
         <div className={classNames(styles.weightWrapper)}>
           <input
             className={classNames(styles.Input)}
