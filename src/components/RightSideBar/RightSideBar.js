@@ -29,6 +29,7 @@ const RightSideBar = () => {
     dailyNorm - consumedCalories > 0
       ? (dailyNorm - consumedCalories).toFixed(2)
       : 0;
+
   const percent = ((consumedCalories / dailyNorm) * 100).toFixed(2);
   return (
     <div className={styles.RightSideBarContainer}>
