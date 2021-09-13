@@ -73,7 +73,7 @@ export default function RegistrationForm() {
     } else {
       dispatch(authOperations.registration({ name, login, password }));
     }
-
+    localStorage.removeItem('userInfo');
     clearForm();
   };
 

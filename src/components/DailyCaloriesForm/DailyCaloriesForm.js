@@ -2,198 +2,133 @@ import React, { useState } from 'react';
 import Button from './Button';
 import classNames from 'classnames';
 import styles from './DailyCaloriesForm.module.css';
+import { Formik, Field, Form } from 'formik';
+import Validation from './DailyValidation';
 
 export default function DailyCaloriesForm({ onSubmit }) {
-  const [height, setHeight] = useState('');
-  const [age, setAge] = useState('');
-  const [weight, setWeight] = useState('');
-  const [desiredWeight, setDesiredWeight] = useState('');
-  const [bloodType, setBloodType] = useState('1');
-
-  const onChangeInput = ({ target }) => {
-    const { name, value } = target;
-
-    switch (name) {
-      case 'height':
-        setHeight(value);
-        break;
-
-      case 'age':
-        setAge(value);
-        break;
-
-      case 'weight':
-        setWeight(value);
-        break;
-
-      case 'desiredWeight':
-        setDesiredWeight(value);
-        break;
-
-      default:
-        break;
-    }
-  };
-
-  const onChangeRadio = e => {
-    setBloodType(e.target.value);
-  };
-  const onSubmitForm = e => {
-    e.preventDefault();
-    localStorage.setItem(
-      'userInfo',
-      JSON.stringify({
-        weight,
-        age,
-        height,
-        newWeight: desiredWeight,
-        bloodGroup: bloodType,
-      }),
-    );
-    onSubmit({
-      weight,
-      age,
-      height,
-      newWeight: desiredWeight,
-      bloodGroup: bloodType,
-    });
-    clearForm();
-  };
-
-  // todo
-  const clearForm = () => {
-    setHeight('');
-    setAge('');
-    setWeight('');
-    setDesiredWeight('');
-    setBloodType('1');
-  };
-
   return (
     <div className={classNames(styles.FormWrapper)}>
       <h1 className={styles.Title}>
         Просчитай свою суточную норму калорий прямо сейчас
       </h1>
-      <form onSubmit={onSubmitForm} className={styles.Form} id="caloriesForm">
-        <div className={styles.ColumnWrapper}>
-          <div className={styles.ColumnOne}>
-            <div className={styles.Wrapper}>
-              <input
-                className={styles.Input}
-                type="text"
-                name="height"
-                value={height}
-                onChange={onChangeInput}
-                autoComplete="off"
-                placeholder=" "
-                id={height}
-              ></input>
-              <label className={styles.Label} htmlFor={height}>
-                Рост *
-              </label>
-            </div>
-            <div className={styles.Wrapper}>
-              <input
-                className={styles.Input}
-                type="text"
-                name="age"
-                value={age}
-                onChange={onChangeInput}
-                autoComplete="off"
-                placeholder=" "
-                id={age}
-              ></input>
-              <label className={styles.Label} htmlFor={age}>
-                Возраст *
-              </label>
-            </div>
-            <div className={styles.Wrapper}>
-              <input
-                className={styles.Input}
-                type="text"
-                name="weight"
-                value={weight}
-                onChange={onChangeInput}
-                autoComplete="off"
-                placeholder=" "
-                id={weight}
-              ></input>
-              <label className={styles.Label} htmlFor={weight}>
-                Текущий вес *
-              </label>
-            </div>
-          </div>
-          <div className={styles.ColumnTwo}>
-            <div className={classNames(styles.Wrapper, styles.TheLastOne)}>
-              <input
-                className={styles.Input}
-                type="text"
-                name="desiredWeight"
-                value={desiredWeight}
-                onChange={onChangeInput}
-                autoComplete="off"
-                placeholder=" "
-                id={desiredWeight}
-              ></input>
-              <label className={styles.Label} htmlFor={desiredWeight}>
-                Желаемый вес *
-              </label>
-            </div>
-            <p className={styles.RadioTitle}>Группа крови *</p>
-            <div className={styles.RadioButtons}>
-              <div>
-                <input
-                  className={styles.CustomRadio}
-                  type="radio"
-                  value="1"
-                  checked={bloodType === '1'}
-                  onChange={onChangeRadio}
-                  id="first"
-                />
-                <label htmlFor="first">1</label>
+      <Formik
+        initialValues={{
+          height: '',
+          weight: '',
+          age: '',
+          newWeight: '',
+          bloodGroup: '1',
+        }}
+        validationSchema={Validation}
+        onSubmit={onSubmit}
+        render={({ errors, touched, values }) => (
+          <Form className={styles.Form}>
+            <div className={styles.ColumnWrapper}>
+              <div className={styles.ColumnOne}>
+                <div className={styles.Wrapper}>
+                  <Field name="height" type="text" className={styles.Input} />
+                  <label className={styles.Label} htmlFor="height">
+                    Рост *
+                  </label>
+                  {errors.height && touched.height && (
+                    <div className={styles.fieldError}>{errors.height}</div>
+                  )}
+                </div>
+                <div className={styles.Wrapper}>
+                  <Field className={styles.Input} type="text" name="age" />
+                  <label className={styles.Label} htmlFor="age">
+                    Возраст *
+                  </label>
+                  {errors.age && touched.age && (
+                    <div className={styles.fieldError}>{errors.age}</div>
+                  )}
+                </div>
+                <div className={styles.Wrapper}>
+                  <Field className={styles.Input} type="text" name="weight" />
+                  <label className={styles.Label} htmlFor="weight">
+                    Текущий вес *
+                  </label>
+                  {errors.weight && touched.weight && (
+                    <div className={styles.fieldError}>{errors.weight}</div>
+                  )}
+                </div>
               </div>
-              <div>
-                <input
-                  className={styles.CustomRadio}
-                  type="radio"
-                  value="2"
-                  checked={bloodType === '2'}
-                  onChange={onChangeRadio}
-                  id="second"
-                />
-                <label htmlFor="second">2</label>
-              </div>
-              <div>
-                <input
-                  className={styles.CustomRadio}
-                  type="radio"
-                  value="3"
-                  checked={bloodType === '3'}
-                  onChange={onChangeRadio}
-                  id="third"
-                />
-                <label htmlFor="third">3</label>
-              </div>
-              <div>
-                <input
-                  className={styles.CustomRadio}
-                  type="radio"
-                  value="4"
-                  checked={bloodType === '4'}
-                  onChange={onChangeRadio}
-                  id="fourth"
-                />
-                <label htmlFor="fourth">4</label>
+              <div className={styles.ColumnTwo}>
+                <div className={classNames(styles.Wrapper, styles.TheLastOne)}>
+                  <Field
+                    className={styles.Input}
+                    type="text"
+                    name="newWeight"
+                  />
+                  <label className={styles.Label} htmlFor="newWeight">
+                    Желаемый вес *
+                  </label>
+                  {errors.newWeight && touched.newWeight && (
+                    <div className={styles.fieldError}>{errors.newWeight}</div>
+                  )}
+                </div>
+                <p className={styles.RadioTitle}>Группа крови *</p>
+                <div
+                  className={styles.RadioButtons}
+                  role="group"
+                  aria-labelledby="my-radio-group"
+                >
+                  <div>
+                    <Field
+                      type="radio"
+                      name="bloodGroup"
+                      value="1"
+                      checked={values.bloodGroup === '1'}
+                      className={styles.CustomRadio}
+                      id="first"
+                    />
+
+                    <label htmlFor="first">1</label>
+                  </div>
+                  <div>
+                    <Field
+                      type="radio"
+                      name="bloodGroup"
+                      value="2"
+                      checked={values.bloodGroup === '2'}
+                      className={styles.CustomRadio}
+                      id="second"
+                    />
+                    <label htmlFor="second">2</label>
+                  </div>
+                  <div>
+                    <Field
+                      type="radio"
+                      name="bloodGroup"
+                      value="3"
+                      checked={values.bloodGroup === '3'}
+                      className={styles.CustomRadio}
+                      id="third"
+                    />
+                    <label htmlFor="third">3</label>
+                  </div>
+                  <div>
+                    <Field
+                      type="radio"
+                      name="bloodGroup"
+                      value="4"
+                      checked={values.bloodGroup === '4'}
+                      className={styles.CustomRadio}
+                      id="fourth"
+                    />
+                    <label htmlFor="fourth">4</label>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </form>
-      <div className={classNames(styles.BtnWrapper)}>
-        <Button type="submit" active={true} form="caloriesForm">
-          Похудеть
-        </Button>
-      </div>
+            <div className={classNames(styles.BtnWrapper)}>
+              <Button type="submit" active={true}>
+                Похудеть
+              </Button>
+            </div>
+          </Form>
+        )}
+      />
     </div>
   );
 }

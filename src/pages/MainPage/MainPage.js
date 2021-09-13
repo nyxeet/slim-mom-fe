@@ -21,6 +21,7 @@ const MainPage = () => {
   };
 
   const onSubmit = values => {
+    localStorage.setItem('userInfo', JSON.stringify(values));
     dispatch(dailyOperetions.onFetchDailyRates(values));
     toggleModal();
   };
