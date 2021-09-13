@@ -1,3 +1,5 @@
-const getUserData = state => state.userData;
+const getUserData = state => state.userData.userInfo;
 
-export default { getUserData };
+const getUserLogin = state => state.userData.userLogin;
+
+export default { getUserData, getUserLogin };

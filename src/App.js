@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import MainPage from './pages/MainPage';
 import RegistrationPage from './pages/RegistrationPage';
 import { Switch, Route } from 'react-router-dom';
@@ -18,13 +18,13 @@ import {
   addProductMobileForm,
 } from './routes';
 import { PublicRoute, PrivateRoute } from './components/CustomRoutes';
+import Loader from './components/Loader';
 
 function App() {
   return (
     <>
       <Header />
-      {/* // todo: Добавить Suspense,лоадер и ленивую загрузку по желанию или удалить закоментрованную часть*/}
-      {/* <Suspense fallback={<h1>Loading..</h1>}> */}
+    <Suspense fallback={<Loader />}>
       <Switch>
         <PublicRoute
           exact
@@ -50,7 +50,8 @@ function App() {
           <AddProductPage />
         </PrivateRoute>
       </Switch>
-      {/* </Suspense> */}
+    </Suspense>
+
     </>
   );
 }

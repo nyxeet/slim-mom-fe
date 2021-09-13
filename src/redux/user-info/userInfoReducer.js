@@ -1,4 +1,4 @@
-import { createReducer } from '@reduxjs/toolkit';
+import { createReducer, combineReducers } from '@reduxjs/toolkit';
 import userInfoActions from './userInfoActions';
 
 const initialState = {
@@ -6,7 +6,14 @@ const initialState = {
 };
 
 const userInfo = createReducer(initialState, {
-  [userInfoActions.fetchUserInfoSuccess]: (_, { payload }) => payload,
+  [userInfoActions.fetchUserInfoSuccess]: (_, { payload }) => payload.userData,
 });
 
-export default userInfo;
+const userLogin = createReducer(null, {
+  [userInfoActions.fetchUserInfoSuccess]: (_, {payload}) => payload.login
+})
+
+export default combineReducers({
+  userInfo,
+  userLogin,
+});

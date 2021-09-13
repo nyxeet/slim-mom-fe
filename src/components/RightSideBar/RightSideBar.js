@@ -11,7 +11,12 @@ const RightSideBar = () => {
   useEffect(() => dispatch(userOperations.onFetchCurrentUser()), []);
 
   const userData = useSelector(userSelectors.getUserData);
-  const products = userData.notAllowedProducts;
+  let products = userData.notAllowedProducts;
+  if (products && products.every(item => typeof item !== 'string')) {
+    products = products
+      .map(product => product.categories[0])
+      .filter((item, index, arr) => arr.indexOf(item) === index);
+  }
   const dailyNorm = userData.dailyCalorieIntake;
   let date = useSelector(productsSelectors.getDate);
   if (date) {
@@ -19,10 +24,13 @@ const RightSideBar = () => {
   }
   const consumedCalories = useSelector(
     productsSelectors.getTotalDailyCcal,
-  ).toFixed(1);
-  const left = (dailyNorm - consumedCalories).toFixed(1);
-  const percent = ((consumedCalories / dailyNorm) * 100).toFixed(2);
+  ).toFixed(2);
+  const left =
+    dailyNorm - consumedCalories > 0
+      ? (dailyNorm - consumedCalories).toFixed(2)
+      : 0;
 
+  const percent = ((consumedCalories / dailyNorm) * 100).toFixed(2);
   return (
     <div className={styles.RightSideBarContainer}>
       <div className={styles.RightSideBarSummary}>
@@ -50,7 +58,7 @@ const RightSideBar = () => {
               {dailyNorm ? dailyNorm : '000'} ккал
             </li>
             <li className={styles.RightSideBarItem}>
-              {isNaN(percent) ? '0' : percent} %
+              {isNaN(percent) || percent === 'Infinity' ? '0' : percent} %
             </li>
           </ul>
         </div>

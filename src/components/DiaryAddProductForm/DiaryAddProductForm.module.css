@@ -24,7 +24,7 @@ a {
   .productWrapper,
   .weightWrapper {
     position: relative;
-
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,10 +101,10 @@ a {
   .Form {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: end;
 
     width: 100%;
-    max-width: 475px;
+    max-width: 530px;
     margin-bottom: 60px;
   }
 
@@ -165,14 +165,14 @@ a {
 
   .weightWrapper {
     position: relative;
-
+    margin-left: 10px;
     width: 100%;
     max-width: 105px;
     margin-right: 48px;
   }
 
   .BtnWrapper {
-    width: 50px;
+    width: 70px;
     height: 50px;
     border-radius: 50%;
     border: none;
@@ -288,7 +288,7 @@ a {
   }
 
   .BtnWrapper {
-    width: 50px;
+    width: 70px;
     height: 50px;
     border-radius: 50%;
     border: none;
