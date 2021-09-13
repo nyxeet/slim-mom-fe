@@ -18,6 +18,8 @@
 
 @media screen and (min-width: 1280px) {
   .background {
+    padding-top: 200px;
+    padding-left: 50px;
     background-image: url('./../../images/pics/bg-main-desktop.png');
     background-size: contain;
     background-position: bottom right;

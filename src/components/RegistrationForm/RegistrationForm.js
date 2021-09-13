@@ -137,18 +137,18 @@ export default function RegistrationForm() {
 
       <div className={classNames(styles.BtnWrapper)}>
         <Button
-          type="submit"
+          type="button"
           active={true}
-          form="form"
           mr="mr"
           loginLink={true}
           link={true}
           linkTo="/login"
+          withLink={true}
         >
           Вход
         </Button>
 
-        <Button type="button" active={false}>
+        <Button type="submit" active={false} form="form" withoutLink={true}>
           Регистрация
         </Button>
       </div>

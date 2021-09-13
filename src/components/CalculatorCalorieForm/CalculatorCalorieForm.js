@@ -185,7 +185,12 @@ export default function DailyCaloriesForm({ onSubmit }) {
         </div>
       </form>
       <div className={classNames(styles.BtnWrapper)}>
-        <Button type="submit" active={true} form="calculatorForm">
+        <Button
+          type="submit"
+          active={true}
+          form="calculatorForm"
+          withoutLink={true}
+        >
           Похудеть
         </Button>
       </div>

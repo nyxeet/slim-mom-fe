@@ -62,6 +62,10 @@
 
     width: 100%;
     max-width: 605px;
+    margin-top: 100px;
+  }
+  .containerRight {
+    margin-top: 100px;
   }
   .left {
     flex-grow: 1;

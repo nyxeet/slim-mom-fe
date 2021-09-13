@@ -82,7 +82,14 @@ export default function LoginForm() {
       </form>
 
       <div className={classNames(styles.BtnWrapper)}>
-        <Button type="submit" active={true} form="form" mr="mr">
+        <Button
+          type="submit"
+          active={true}
+          form="form"
+          mr="mr"
+          loginLink={true}
+          withoutLink={true}
+        >
           Вход
         </Button>
 
@@ -92,6 +99,7 @@ export default function LoginForm() {
           link={true}
           linkTo="/registration"
           registrationLink={true}
+          withLink={true}
         >
           Регистрация
         </Button>
