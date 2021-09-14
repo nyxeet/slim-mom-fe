@@ -8,8 +8,9 @@ import { useDispatch } from 'react-redux';
 
 const CalculatorPage = () => {
   const dispatch = useDispatch();
-  const onSubmit = values => {
+  const onSubmit = (values, { resetForm }) => {
     dispatch(dailyOperetions.onFetchDailyRatesAuth(values));
+    resetForm({ values: '' });
   };
 
   return (
