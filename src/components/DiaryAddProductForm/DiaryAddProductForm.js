@@ -154,6 +154,7 @@ export default function DiaryAddProductForm() {
           hide={true}
           link={true}
           linkTo={diaryLink}
+          withoutLink={true}
         >
           Добавить
         </Button>

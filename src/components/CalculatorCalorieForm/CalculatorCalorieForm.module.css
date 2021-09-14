@@ -4,6 +4,11 @@
 @value secondary-title-color from '../../styles/variables.module.css';
 @value primary-font from '../../styles/variables.module.css';
 
+.fieldError {
+  color: red;
+  font-size: 12px;
+  margin-top: 6px;
+}
 .Title {
   margin-bottom: 30px;
   font-family: primary-font;
@@ -42,7 +47,7 @@
 .Label {
   position: absolute;
   left: 0;
-  top: -7px;
+  top: -10px;
   width: 100%;
 
   font-family: primary-font;
@@ -75,14 +80,12 @@
   transition: all 250ms ease-in;
 }
 
-.Input:focus,
-.Input:not(:placeholder-shown) {
+.Input:focus {
   outline: none;
   border-bottom: 1px solid secondary-btn-color;
 }
 
-.Input:focus + .Label,
-.Input:not(:placeholder-shown) + .Label {
+.Input:focus + .Label {
   color: secondary-title-color;
   left: 15px;
   top: -15px;
@@ -142,9 +145,12 @@
 }
 
 .BtnWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
   margin-bottom: 20px;
   width: 100%;
-  max-width: 176px;
+  max-width: 320px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -184,8 +190,8 @@
   }
 
   .BtnWrapper {
-    display: flex;
-    flex-direction: row;
+    margin-top: 0;
+    justify-content: flex-start;
     width: 100%;
     max-width: 768px;
   }
@@ -225,6 +231,7 @@
   }
 
   .BtnWrapper {
+    margin-top: 0;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;

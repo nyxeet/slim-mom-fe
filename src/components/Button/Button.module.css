@@ -9,9 +9,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
-  padding-top: 12px;
-  padding-bottom: 12px;
+  overflow: hidden;
 
   width: 100%;
   max-width: 176px;
@@ -49,11 +47,6 @@
   background-color: secondary-bg-color;
 }
 
-.Link {
-  color: secondary-btn-color;
-  background-color: secondary-bg-color;
-}
-
 .loginLink {
   color: primary-btn-color;
   background-color: primary-bg-color;
@@ -62,6 +55,22 @@
 .registrationLink {
   color: secondary-btn-color;
   background-color: secondary-bg-color;
+}
+
+.WithOutLink {
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+.Size {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  width: 100%;
+}
+
+.WithLink {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 @media screen and (min-width: 768px) {

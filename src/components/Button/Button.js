@@ -15,6 +15,9 @@ export default function Button({
   children,
   registrationLink,
   hide,
+  withLink,
+  withoutlink,
+  withoutLink,
 }) {
   return (
     <button
@@ -26,6 +29,8 @@ export default function Button({
         !active && styles.NotActive,
         mr && styles.BtnPosition,
         hide && styles.Hide,
+        withLink && styles.WithLink,
+        withoutLink && styles.WithOutLink,
       )}
     >
       {link ? (
@@ -33,6 +38,7 @@ export default function Button({
           className={classNames(
             loginLink && styles.loginLink,
             registrationLink && styles.registrationLink,
+            withLink && styles.Size,
           )}
           to={linkTo}
         >
